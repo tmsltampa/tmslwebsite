@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Board | Tampa Muslim Soccer League</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --night:#121212;
+  --night-2:#1A1A1A;
+  --pitch:#202020;
+  --green:#0B6E4F;
+  --green-light:#14916A;
+  --gold:#14916A;
+  --gold-light:#BFC5CC;
+  --cream:#FFFFFF;
+  --slate:#8B9299;
+  --line: rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--night);
+  color:var(--cream);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.display{
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.02em;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(18,18,18,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{height:44px;width:44px;border-radius:50%;}
+.brand-text{display:flex;flex-direction:column;line-height:1;}
+.brand-text .b1{font-family:'Oswald';font-weight:700;font-size:18px;letter-spacing:0.04em;}
+.brand-text .b2{font-size:9px;letter-spacing:0.18em;color:var(--gold-light);margin-top:3px;}
+.navlinks{display:flex;gap:28px;align-items:center;}
+.navlinks a{
+  font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--slate);transition:color .2s;
+  position:relative;
+}
+.navlinks a:hover, .navlinks a.active{color:var(--cream);}
+.navlinks a.active::after{
+  content:'';position:absolute;bottom:-22px;left:0;right:0;height:2px;background:var(--gold);
+}
+.nav-cta{
+  background:var(--green);color:var(--cream);padding:10px 22px;border-radius:3px;
+  font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--green-light);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
+.burger span{width:24px;height:2px;background:var(--cream);}
+.mobile-menu{
+  display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--night-2);
+  z-index:999;padding:32px 24px;flex-direction:column;gap:4px;overflow-y:auto;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  padding:16px 4px;border-bottom:1px solid var(--line);
+  font-family:'Oswald';font-size:18px;letter-spacing:0.04em;text-transform:uppercase;
+}
+
+/* ===== SECTION HEADER PATTERN ===== */
+.sec{padding:90px 0;}
+.sec-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:48px;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--line);padding-bottom:24px;
+}
+.sec-eyebrow{
+  font-size:12px;letter-spacing:0.2em;color:var(--gold-light);font-weight:600;text-transform:uppercase;margin-bottom:10px;display:block;
+}
+.sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:600;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0 28px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.footer-brand img{height:40px;width:40px;border-radius:50%;}
+.footer-brand span{font-family:'Oswald';font-weight:700;font-size:17px;letter-spacing:0.04em;}
+.footer-grid p{color:var(--slate);font-size:14px;line-height:1.7;max-width:280px;}
+.footer-col h4{font-size:12px;letter-spacing:0.12em;color:var(--gold-light);margin-bottom:18px;text-transform:uppercase;}
+.footer-col a{display:block;color:var(--slate);font-size:14px;margin-bottom:12px;transition:color .2s;}
+.footer-col a:hover{color:var(--cream);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;padding-top:28px;
+  border-top:1px solid var(--line);flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:13px;color:var(--slate);}
+.social-row{display:flex;gap:14px;}
+.social-row a{
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;
+}
+.social-row a:hover{border-color:var(--gold);color:var(--gold-light);}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+  .navlinks{display:none;}
+  .burger{display:flex;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .board-grid{grid-template-columns:1fr !important;}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr;}
+}
+
+/* PAGE HERO (sub-pages) */
+.page-hero{
+  position:relative;padding:170px 24px 70px;
+  background:
+    linear-gradient(180deg, rgba(18,18,18,0.55), var(--night) 90%),
+    url('assets/gallery/duel.jpg') center 30%/cover no-repeat;
+}
+.page-hero-inner{max-width:1180px;margin:0 auto;}
+.page-hero h1{font-size:clamp(40px,6vw,68px);font-weight:700;}
+.page-hero p{color:var(--slate);font-size:17px;margin-top:14px;max-width:520px;}
+.breadcrumb{font-size:12px;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase;margin-bottom:18px;}
+
+/* BOARD */
+.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.board-card{background:var(--night-2);padding:32px;text-align:center;}
+.board-avatar{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 18px;
+  background:var(--pitch);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+}
+.board-avatar img{width:36px;height:36px;opacity:0.5;}
+.board-card h3{font-size:16px;font-weight:600;color:var(--slate);}
+.board-card .role{
+  font-family:'Oswald';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--gold-light);margin-top:6px;
+}
+
+/* Mobile menu fullscreen override — belt and suspenders */
+@media (max-width:900px){
+  #mobileMenu {
+    display:none;
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    min-height:100vh !important;
+    background:var(--night) !important;
+    z-index:99999 !important;
+    padding:90px 32px 40px !important;
+    flex-direction:column !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  #mobileMenu.open {
+    display:flex !important;
+  }
+  #mobileMenu a {
+    padding:18px 0 !important;
+    border-bottom:1px solid var(--line) !important;
+    font-family:'Oswald' !important;
+    font-size:26px !important;
+    letter-spacing:0.06em !important;
+    text-transform:uppercase !important;
+    color:var(--cream) !important;
+    display:block !important;
+    width:100% !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/gallery/crest.png" alt="TMSL Logo">
+      <div class="brand-text">
+        <span class="b1">TMSL</span>
+        <span class="b2">Est. 2024 &middot; Tampa, FL</span>
+      </div>
+    </a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+<a href="schedule.html">Schedule</a>
+<a href="standings.html">Standings</a>
+<a href="teams.html">Teams</a>
+<a href="rules.html">Rules</a>
+<a href="location.html">Location</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="board.html" class="active">Board</a>
+<a href="contact.html">Contact</a>
+
+    </div>
+    <a href="register.html" class="nav-cta">Register</a>
+    <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+<a href="schedule.html">Schedule</a>
+<a href="standings.html">Standings</a>
+<a href="teams.html">Teams</a>
+<a href="register.html">Registration</a>
+<a href="rules.html">Rules</a>
+<a href="location.html">Location</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="board.html">Board</a>
+<a href="contact.html">Contact</a>
+
+  </div>
+</nav>
+
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="breadcrumb">League / Board</span>
+    <h1>Board &amp; Staff</h1>
+    <p>Meet the people who run Tampa Muslim Soccer League. This page is a work in progress &mdash; full bios and photos are coming soon.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Leadership</span><h2>League Board</h2></div>
+    </div>
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">President</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">Vice President</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">Treasurer</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">Secretary</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">Head of Officiating</div>
+      </div>
+      <div class="board-card">
+        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <h3>Name coming soon</h3>
+        <div class="role">Communications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--night-2);">
+  <div class="container" style="max-width:780px;text-align:center;">
+    <span class="sec-eyebrow">Get Involved</span>
+    <h2 style="margin-bottom:18px;">Interested in Leadership?</h2>
+    <p style="color:var(--slate);font-size:16px;line-height:1.8;">TMSL is run entirely by volunteers from the community. If you'd like to get involved with the board or help behind the scenes, reach out through the contact page.</p>
+    <a href="contact.html" class="nav-cta" style="display:inline-block;margin-top:28px;padding:14px 30px;">Get In Touch</a>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/gallery/crest.png" alt="TMSL">
+          <span>TMSL</span>
+        </div>
+        <p>Tampa Muslim Soccer League. Competitive soccer, brotherhood, and community &mdash; building something real, one season at a time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>League</h4>
+        <a href="schedule.html">Schedule</a>
+        <a href="standings.html">Standings</a>
+        <a href="teams.html">Teams</a>
+        <a href="rules.html">Rules &amp; Conduct</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Involved</h4>
+        <a href="register.html">Register</a>
+        <a href="sponsors.html">Become a Sponsor</a>
+        <a href="contact.html">Volunteer</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="location.html">Field Location</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="mailto:tmsltampa@gmail.com">tmsltampa@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tampa Muslim Soccer League. All rights reserved.</p>
+      <div class="social-row">
+        <a href="https://www.instagram.com/tmsltampa" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://www.tiktok.com/@tmsltampa" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+        <a href="https://www.youtube.com/@tmsltampa" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+        <a href="https://chat.whatsapp.com/B8nHcZ3zFYA8FBspHta4fV" aria-label="WhatsApp" target="_blank" rel="noopener">WA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.getElementById('burgerBtn').addEventListener('click', function(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('.mobile-menu a').forEach(a=>{
+  a.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.remove('open'));
+});
+</script>
+
+
+</body>
+</html>
