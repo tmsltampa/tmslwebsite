@@ -506,18 +506,22 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <section class="sec">
   <div class="container" style="max-width:760px;">
     <div class="form-wrap">
-      <form onsubmit="event.preventDefault(); document.getElementById('contactSuccess').style.display='block'; this.style.display='none';">
+      <form id="contactForm">
+        <input type="hidden" name="access_key" value="50d0ea05-db32-4091-a3e4-98c246b3b6f6">
+        <input type="hidden" name="subject" value="New message from the TMSL website contact form">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
-          <div class="field"><label>Name</label><input type="text" required></div>
-          <div class="field"><label>Phone</label><input type="tel"></div>
+          <div class="field"><label>Name</label><input type="text" name="name" required></div>
+          <div class="field"><label>Phone</label><input type="tel" name="phone"></div>
         </div>
         <div class="form-row full">
-          <div class="field"><label>Email</label><input type="email" required></div>
+          <div class="field"><label>Email</label><input type="email" name="email" required></div>
         </div>
         <div class="form-row full">
-          <div class="field"><label>Message</label><textarea required placeholder="How can we help?"></textarea></div>
+          <div class="field"><label>Message</label><textarea name="message" required placeholder="How can we help?"></textarea></div>
         </div>
-        <button type="submit" class="submit-btn">Send Message</button>
+        <button type="submit" class="submit-btn" id="contactSubmitBtn">Send Message</button>
+        <p id="contactError" style="display:none;color:#d98a8a;font-size:13px;margin-top:14px;">Something went wrong sending your message. Please try again or email us directly at <a href="mailto:tmsltampa@gmail.com" style="color:#d98a8a;text-decoration:underline;">tmsltampa@gmail.com</a>.</p>
       </form>
       <div id="contactSuccess" style="display:none;text-align:center;padding:40px 0;">
         <h3 style="font-size:24px;margin-bottom:12px;">Message Sent</h3>
@@ -600,6 +604,32 @@ document.getElementById('burgerBtn').addEventListener('click', function(){
 });
 document.querySelectorAll('.mobile-menu a').forEach(a=>{
   a.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('contactSubmitBtn');
+  const errorMsg = document.getElementById('contactError');
+  errorMsg.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Accept': 'application/json'},
+    body: new FormData(form)
+  }).then(res => res.json()).then(data => {
+    if (data.success) {
+      document.getElementById('contactSuccess').style.display = 'block';
+      form.style.display = 'none';
+    } else {
+      throw new Error(data.message || 'Submission failed');
+    }
+  }).catch(() => {
+    errorMsg.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  });
 });
 </script>
 

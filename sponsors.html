@@ -381,6 +381,16 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .sponsor-card h3{font-size:20px;margin-bottom:6px;}
 .sponsor-card p{color:var(--slate);font-size:14px;line-height:1.7;}
 @media(max-width:700px){.sponsor-card{flex-direction:column;text-align:center;}}
+.sponsor-card--photo{align-items:center;}
+.sponsor-photo{width:220px;height:160px;object-fit:cover;border-radius:6px;flex-shrink:0;}
+.sponsor-card-body{flex:1;}
+.sponsor-grid-simple{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.sponsor-grid-simple .sponsor-card{flex-direction:column;text-align:center;padding:28px;}
+@media(max-width:900px){.sponsor-grid-simple{grid-template-columns:1fr;}}
+@media(max-width:700px){
+  .sponsor-card--photo{flex-direction:column;}
+  .sponsor-photo{width:100%;height:200px;}
+}
 /* FORMS */
 .form-wrap{background:var(--night-2);border:1px solid var(--line);border-radius:6px;padding:48px;max-width:760px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
@@ -500,47 +510,117 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   <div class="page-hero-inner">
     <span class="breadcrumb">League / Sponsors</span>
     <h1>Our Sponsors</h1>
-    <p>TMSL runs on the generosity of local businesses who believe in this community.</p>
+    <p>TMSL runs on the generosity of local businesses who believe in this community. Interested in sponsoring next season? <a href="contact.html" style="color:var(--gold-light);text-decoration:underline;">Get in touch</a>.</p>
   </div>
 </section>
+
 <section class="sec">
   <div class="container">
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Gold Tier</span><h2>Championship Sponsors</h2></div>
+    </div>
     <div class="sponsor-tiers">
-    <div class="sponsor-card">
-      <div class="sponsor-mark" style="background:#1F6B4D">SV</div>
-      <div>
-        <h3>SaVia</h3>
-        <p>SaVia has been a cornerstone supporter of TMSL since Season 4, backing team kits and championship trophies. Their commitment to the league's growth is felt every matchday.</p>
+      <div class="sponsor-card sponsor-card--photo">
+        <div class="sponsor-mark" style="background:#8A6D2E">QC</div>
+        <div class="sponsor-card-body">
+          <h3>Qamaria Yemeni Coffee Co.</h3>
+          <p>Qamaria Yemeni Coffee Co. brings the community together off the field too &mdash; sponsoring league jerseys and showing up to celebrate every championship moment.</p>
+        </div>
+        <img class="sponsor-photo" src="assets/gallery/sponsor-qamaria.jpg" alt="Qamaria Yemeni Coffee Co. jersey presentation">
+      </div>
+      <div class="sponsor-card sponsor-card--photo">
+        <div class="sponsor-mark" style="background:#1F6B4D">SV</div>
+        <div class="sponsor-card-body">
+          <h3>SaVia</h3>
+          <p>SaVia has been a cornerstone supporter of TMSL since Season 4, backing team kits and championship trophies. Their commitment to the league's growth is felt every matchday.</p>
+        </div>
+        <img class="sponsor-photo" src="assets/gallery/sponsor-savia.jpg" alt="SaVia jersey presentation">
+      </div>
+      <div class="sponsor-card sponsor-card--photo">
+        <div class="sponsor-mark" style="background:#A53B3B">NRS</div>
+        <div class="sponsor-card-body">
+          <h3>NRS (Nationwide Realty Solutions)</h3>
+          <p>NRS has been a proud league partner, recognized each season for their generous support and commitment to TMSL's growth.</p>
+        </div>
+        <img class="sponsor-photo" src="assets/gallery/sponsor-nrs.jpg" alt="NRS Nationwide Realty Solutions jersey presentation">
+      </div>
+      <div class="sponsor-card sponsor-card--photo">
+        <div class="sponsor-mark" style="background:#3B5BA5">SP</div>
+        <div class="sponsor-card-body">
+          <h3>SplitPOS</h3>
+          <p>SplitPOS has supported team jerseys across multiple seasons, helping TMSL teams look as sharp as they play.</p>
+        </div>
+        <img class="sponsor-photo" src="assets/gallery/trophy-presentation.jpg" alt="SplitPOS-sponsored team jerseys with league trophies">
       </div>
     </div>
-    <div class="sponsor-card">
-      <div class="sponsor-mark" style="background:#8A6D2E">QC</div>
-      <div>
-        <h3>Qamaria Yemeni Coffee Co.</h3>
-        <p>Qamaria Yemeni Coffee Co. brings the community together off the field too &mdash; sponsoring league jerseys and showing up to celebrate every championship moment.</p>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--night-2);">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Silver Tier</span><h2>Community Sponsors</h2></div>
+    </div>
+    <div class="sponsor-grid-simple">
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#2E6B8A">PD</div>
+        <div>
+          <h3>Phoenix Dental</h3>
+          <p>Phoenix Dental is proud to support Tampa Muslim Soccer League, helping bring the community together on and off the field.</p>
+        </div>
+      </div>
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#6B5C2E">KK</div>
+        <div>
+          <h3>Kekes</h3>
+          <p>Kekes is a proud season sponsor of TMSL, fueling the community that fuels the league.</p>
+        </div>
+      </div>
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#5C5C8A">PM</div>
+        <div>
+          <h3>Petra Mediterranean Restaurant</h3>
+          <p>Petra Mediterranean Restaurant proudly supports TMSL, serving up community spirit alongside great food.</p>
+        </div>
       </div>
     </div>
-    <div class="sponsor-card">
-      <div class="sponsor-mark" style="background:#3B5BA5">SP</div>
-      <div>
-        <h3>Splitpos</h3>
-        <p>Splitpos has supported team jerseys across multiple seasons, helping TMSL teams look as sharp as they play.</p>
-      </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Bronze Tier</span><h2>Supporting Sponsors</h2></div>
     </div>
-    <div class="sponsor-card">
-      <div class="sponsor-mark" style="background:#A53B3B">NRS</div>
-      <div>
-        <h3>NRS Nationwide Realty Solutions</h3>
-        <p>NRS Nationwide Realty Solutions has been a proud league partner, recognized each season for their generous support and commitment to TMSL's growth.</p>
+    <div class="sponsor-grid-simple">
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#3B8A5C">R96</div>
+        <div>
+          <h3>Ruya 1996</h3>
+          <p>Ruya 1996 is a proud supporter of Tampa Muslim Soccer League and its mission to build community through sport.</p>
+        </div>
       </div>
-    </div>
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#8A3B6B">MSO</div>
+        <div>
+          <h3>Mubarak, Sherif &amp; Oladipo, PLLC</h3>
+          <p>Mubarak, Sherif &amp; Oladipo, PLLC proudly stands behind TMSL and the community it serves, on and off the field.</p>
+        </div>
+      </div>
+      <div class="sponsor-card">
+        <div class="sponsor-mark" style="background:#5C8A3B">OS</div>
+        <div>
+          <h3>Onyx Solutions</h3>
+          <p>Onyx Solutions is a proud partner of TMSL, supporting the league's growth season after season.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 <section class="cta-band" style="background-image:linear-gradient(180deg, rgba(18,18,18,0.7), rgba(18,18,18,0.92)), url('assets/gallery/sponsor-savia.jpg');">
   <span class="hero-eyebrow" style="justify-content:center;">Partner With Us</span>
   <h2>Sponsor the next season.</h2>
-  <p>Get your business in front of an engaged, growing Tampa community. Sponsorship packages include jersey branding, field signage, and recognition across the league's matchdays and events.</p>
+  <p>Get your business in front of an engaged, growing Tampa community. Sponsorship packages include jersey branding, field signage, and recognition across the league's matchdays and events. Interested in sponsoring next season or having a large banner on the field? Let us know.</p>
   <a href="contact.html" class="btn btn-primary">Become a Sponsor</a>
 </section>
 
