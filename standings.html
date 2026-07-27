@@ -474,8 +474,8 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
       <a href="index.html">Home</a>
 <a href="schedule.html">Schedule</a>
 <a href="standings.html" class="active">Standings</a>
+<a href="rosters.html">Rosters</a>
 <a href="rules.html">Rules</a>
-<a href="location.html">Location</a>
 <a href="board.html">Board</a>
 <a href="sponsors.html">Sponsors</a>
 <a href="contact.html">Contact</a>
@@ -487,9 +487,9 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
     <a href="index.html">Home</a>
 <a href="schedule.html">Schedule</a>
 <a href="standings.html">Standings</a>
+<a href="rosters.html">Rosters</a>
 <a href="register.html">Registration</a>
 <a href="rules.html">Rules</a>
-<a href="location.html">Location</a>
 <a href="board.html">Board</a>
 <a href="sponsors.html">Sponsors</a>
 <a href="contact.html">Contact</a>
@@ -499,8 +499,8 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <section class="page-hero" style="background-image:linear-gradient(180deg, rgba(18,18,18,0.55), var(--night) 90%), url('assets/gallery/celebration-blue.jpg'); background-size:cover; background-position:center 30%;">
   <div class="page-hero-inner">
     <span class="breadcrumb">League / Standings</span>
-    <h1 id="standingsTitle">Season 4 Standings</h1>
-    <p>Final table and stat leaders from Season 4. Updated directly from the league spreadsheet once connected.</p>
+    <h1 id="standingsTitle">Season 5 Standings</h1>
+    <p>Live table and stat leaders for Season 5. Updated directly from the league spreadsheet once connected.</p>
   </div>
 </section>
 <section class="sec">
@@ -568,7 +568,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
         <h4>League</h4>
         <a href="schedule.html">Schedule</a>
         <a href="standings.html">Standings</a>
-        <a href="teams.html">Teams</a>
+        <a href="rosters.html">Rosters</a>
         <a href="rules.html">Rules &amp; Conduct</a>
       </div>
       <div class="footer-col">
@@ -579,7 +579,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
-        <a href="location.html">Field Location</a>
+        <a href="contact.html#location">Field Location</a>
         <a href="contact.html">Contact Us</a>
         <a href="mailto:tmsltampa@gmail.com">tmsltampa@gmail.com</a>
       </div>
@@ -657,18 +657,34 @@ function showTab(tab){
     });
   }
   const FALLBACK_STANDINGS = [
-    {team:"Hilal Al-Quds", gp:9, w:6, d:1, l:2, gf:33, ga:18, pts:19},
-    {team:"Straw Hats FC", gp:9, w:5, d:2, l:2, gf:25, ga:20, pts:17},
-    {team:"Real Falasteen", gp:9, w:4, d:3, l:2, gf:30, ga:17, pts:15},
-    {team:"Al-Ittihad", gp:9, w:4, d:3, l:2, gf:27, ga:16, pts:15},
-    {team:"Fursan FC", gp:9, w:4, d:1, l:4, gf:21, ga:24, pts:13},
-    {team:"Shabab FC", gp:9, w:3, d:2, l:4, gf:15, ga:18, pts:11},
-    {team:"Al-Dababeer", gp:9, w:2, d:4, l:3, gf:17, ga:19, pts:10},
-    {team:"Middle East Boys", gp:9, w:3, d:1, l:5, gf:18, ga:33, pts:10},
-    {team:"Osoud Kanaan", gp:9, w:3, d:0, l:6, gf:24, ga:31, pts:9},
-    {team:"Kahraba FC", gp:9, w:2, d:1, l:6, gf:16, ga:25, pts:7},
+    {team:"Fursan FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Golden Phoenix", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Al-Ittihad", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Straw Hats FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Hilal Al-Quds", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Handala United", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Blue Lock FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Al Muluk FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Shabab FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Osoud Kanaan", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Hidden Olive FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
   ];
-  const TEAM_COLORS = ["#C9A24B","#2E8A63","#3B5BA5","#A53B3B","#8A6D2E","#5C5C8A","#2E6B8A","#6B5C2E"];
+  /* Jersey color per team, keyed by team name so it stays fixed
+     regardless of standings order (works for both the fallback
+     data above and rows pulled live from the CSV). */
+  const TEAM_COLORS = {
+    "Fursan FC": "#1A1A1A",
+    "Golden Phoenix": "#E85D9E",
+    "Al-Ittihad": "#E0C64C",
+    "Straw Hats FC": "#C0392B",
+    "Hilal Al-Quds": "#F5F5F5",
+    "Handala United": "#9DA3A8",
+    "Blue Lock FC": "#1F3A5F",
+    "Al Muluk FC": "#7A4B9E",
+    "Shabab FC": "#2FA8A0",
+    "Osoud Kanaan": "#D97A3D",
+    "Hidden Olive FC": "#6E7B3A",
+  };
   function renderStandings(rows){
     rows.sort((a,b)=> b.pts - a.pts || (b.gf-b.ga) - (a.gf-a.ga));
     const tbody = document.getElementById('standingsBody');
@@ -678,7 +694,7 @@ function showTab(tab){
       const gdStr = gd > 0 ? '+'+gd : gd;
       const tr = document.createElement('tr');
       if(i < 6) tr.className = 'top3';
-      const color = TEAM_COLORS[i % TEAM_COLORS.length];
+      const color = TEAM_COLORS[r.team] || '#8B9299';
       tr.innerHTML = `<td class="rank">${i+1}</td>
         <td><div class="team-cell"><span class="team-dot" style="background:${color}"></span>${r.team}</div></td>
         <td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td>
@@ -725,72 +741,7 @@ function showTab(tab){
       })
       .catch(()=> renderStandings(FALLBACK_STANDINGS));
   }
-  const FALLBACK_STATS = [
-    {category:"Scorer", name:"Ahmad Hijaz", team:"Al-Ittihad", value:"15"},
-    {category:"Scorer", name:"Basim Saed", team:"Straw Hats FC", value:"15"},
-    {category:"Scorer", name:"Ahmed Abdelhai", team:"Real Falasteen", value:"12"},
-    {category:"Scorer", name:"Jniat", team:"Hilal Al-Quds", value:"10"},
-    {category:"Scorer", name:"Shaker Saleh", team:"Al-Ittihad", value:"9"},
-    {category:"Scorer", name:"Mohammed Hijaz", team:"Fursan FC", value:"9"},
-    {category:"Scorer", name:"Ritouni", team:"Hilal Al-Quds", value:"9"},
-    {category:"Scorer", name:"Anouar Raissi", team:"Shabab FC", value:"9"},
-    {category:"Scorer", name:"Khaled Hassan", team:"Al-Dababeer", value:"8"},
-    {category:"Scorer", name:"Heemo Rifaie", team:"Fursan FC", value:"6"},
-    {category:"Scorer", name:"Taha", team:"Hilal Al-Quds", value:"5"},
-    {category:"Scorer", name:"Youssef El Damaty", team:"Kahraba FC", value:"5"},
-    {category:"Scorer", name:"Hawamdah", team:"Kahraba FC", value:"5"},
-    {category:"Scorer", name:"Zaid Ibsais", team:"Middle East Boys", value:"5"},
-    {category:"Scorer", name:"Rayan Benjelloun", team:"Osoud Kanaan", value:"5"},
-    {category:"Scorer", name:"Osman", team:"Real Falasteen", value:"5"},
-    {category:"Scorer", name:"Barazenji", team:"Real Falasteen", value:"5"},
-    {category:"Scorer", name:"Elias Refay", team:"Straw Hats FC", value:"5"},
-    {category:"Scorer", name:"Aboud", team:"Real Falasteen", value:"4"},
-    {category:"Scorer", name:"Asad", team:"Real Falasteen", value:"4"},
-    {category:"Scorer", name:"Ahmad Haddabeh", team:"Shabab FC", value:"4"},
-    {category:"Scorer", name:"Abushanab", team:"Fursan FC", value:"3"},
-    {category:"Scorer", name:"El Jeffal", team:"Hilal Al-Quds", value:"3"},
-    {category:"Scorer", name:"Rayan Birjas", team:"Kahraba FC", value:"3"},
-    {category:"Scorer", name:"Shahwan", team:"Middle East Boys", value:"3"},
-    {category:"Scorer", name:"Shahir Mohammed", team:"Middle East Boys", value:"3"},
-    {category:"Scorer", name:"Khalid Sakr", team:"Osoud Kanaan", value:"3"},
-    {category:"Scorer", name:"Billy Hijaz", team:"Osoud Kanaan", value:"3"},
-    {category:"Scorer", name:"Jamal Hijaz", team:"Osoud Kanaan", value:"3"},
-    {category:"Scorer", name:"Ahmed Simrin", team:"Al-Dababeer", value:"2"},
-    {category:"Scorer", name:"Yasin Adam", team:"Al-Dababeer", value:"2"},
-    {category:"Scorer", name:"Jabbar", team:"Hilal Al-Quds", value:"2"},
-    {category:"Scorer", name:"Rifaie", team:"Hilal Al-Quds", value:"2"},
-    {category:"Scorer", name:"Abujubara", team:"Middle East Boys", value:"2"},
-    {category:"Scorer", name:"Abel", team:"Osoud Kanaan", value:"2"},
-    {category:"Scorer", name:"Shahin", team:"Osoud Kanaan", value:"2"},
-    {category:"Scorer", name:"M. Zayed", team:"Straw Hats FC", value:"2"},
-    {category:"Scorer", name:"Abdelnasser Hijaz", team:"Al-Dababeer", value:"1"},
-    {category:"Scorer", name:"Rahmouni", team:"Al-Dababeer", value:"1"},
-    {category:"Scorer", name:"Mazen ElMolla", team:"Al-Dababeer", value:"1"},
-    {category:"Scorer", name:"Naji Gahaf", team:"Al-Ittihad", value:"1"},
-    {category:"Scorer", name:"Abdelhamid Saleh", team:"Al-Ittihad", value:"1"},
-    {category:"Scorer", name:"Chahin", team:"Al-Ittihad", value:"1"},
-    {category:"Scorer", name:"Sami Rifaie", team:"Fursan FC", value:"1"},
-    {category:"Scorer", name:"Mahmud", team:"Fursan FC", value:"1"},
-    {category:"Scorer", name:"Thami Ettouati", team:"Fursan FC", value:"1"},
-    {category:"Scorer", name:"Abusubhi", team:"Hilal Al-Quds", value:"1"},
-    {category:"Scorer", name:"Syed", team:"Hilal Al-Quds", value:"1"},
-    {category:"Scorer", name:"Abdulkudus Farah", team:"Kahraba FC", value:"1"},
-    {category:"Scorer", name:"Saif El Damaty", team:"Kahraba FC", value:"1"},
-    {category:"Scorer", name:"Abushanab", team:"Kahraba FC", value:"1"},
-    {category:"Scorer", name:"Ghazawi", team:"Middle East Boys", value:"1"},
-    {category:"Scorer", name:"Mahmoud Said", team:"Middle East Boys", value:"1"},
-    {category:"Scorer", name:"Mohammed Said", team:"Middle East Boys", value:"1"},
-    {category:"Scorer", name:"Shaheen", team:"Middle East Boys", value:"1"},
-    {category:"Scorer", name:"Asker", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"Amr Rhazi", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"Ibrahim", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"I. Zaben", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"Sameh Sheikha", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"Sabtin", team:"Shabab FC", value:"1"},
-    {category:"Scorer", name:"Abdelbaky", team:"Shabab FC", value:"1"},
-    {category:"Scorer", name:"Ahmad Rifaie", team:"Straw Hats FC", value:"1"},
-    {category:"Scorer", name:"I. Hamdan", team:"Straw Hats FC", value:"1"},
-  ];
+  const FALLBACK_STATS = [];
   function renderStats(rows){
     const scorers = rows.filter(r => (r.category||'').toLowerCase() === 'scorer');
     scorers.sort((a,b)=> (parseInt(b.value)||0) - (parseInt(a.value)||0));
