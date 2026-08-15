@@ -282,10 +282,12 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .filter-bar select:focus{outline:2px solid var(--gold);outline-offset:1px;}
 /* SCHEDULE LIST */
 .week-label{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
   font-family:'Oswald';font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
   color:var(--gold-light);margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);
 }
 .week-label:first-of-type{margin-top:0;}
+.week-date{color:var(--slate);letter-spacing:0.06em;}
 .sched-row{
   display:grid;grid-template-columns:120px 1fr 140px 100px;gap:20px;align-items:center;
   padding:20px 18px;border-bottom:1px solid var(--line);transition:background .15s;
@@ -302,6 +304,12 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .tag-upcoming{background:rgba(20,145,106,0.15);color:var(--gold-light);}
 .tag-final{background:rgba(139,146,153,0.15);color:var(--slate);}
 .tag-postponed{background:rgba(165,59,59,0.18);color:#d98a8a;}
+.bye-note{
+  padding:14px 18px;text-align:center;font-family:'Oswald';font-size:12px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--slate);background:rgba(191,197,204,0.05);
+  border-bottom:1px solid var(--line);font-weight:600;
+}
+.bye-note strong{color:var(--gold-light);}
 @media(max-width:760px){
   .sched-row{grid-template-columns:1fr;gap:8px;text-align:left;}
   .sched-status{justify-self:start;}
@@ -500,14 +508,382 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   <div class="page-hero-inner">
     <span class="breadcrumb">League / Schedule</span>
     <h1>Match Schedule</h1>
-    <p>Fixtures for the upcoming season will be posted here once finalized.</p>
+    <p>Season 5 kicks off Thursday, August 27 &mdash; 11 matchweeks across Field 1 &amp; Field 2.</p>
   </div>
 </section>
 <section class="sec">
-  <div class="container" style="text-align:center;padding:60px 24px;">
-    <div style="font-family:'Oswald';font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;">Check Back Soon</div>
-    <h2 style="font-size:clamp(26px,4vw,38px);font-weight:600;max-width:600px;margin:0 auto 16px;">Schedule coming soon.</h2>
-    <p style="color:var(--slate);font-size:16px;max-width:480px;margin:0 auto;">Fixtures, kickoff times, and field assignments will be published here as soon as the season schedule is locked in. Follow league announcements for updates.</p>
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <span class="sec-eyebrow">Season 5</span>
+        <h2>Full Schedule</h2>
+      </div>
+      <p style="color:var(--slate);font-size:15px;max-width:360px;">11 matchweeks &middot; Field 1 &amp; Field 2 &middot; kickoffs at 6:45, 8:00 &amp; 9:15 PM.</p>
+    </div>
+
+    <div class="week-label">Matchweek 1<span class="week-date">Thu, Aug 27</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Al-Ittihad <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Straw Hats FC <span class="vs">VS</span> Handala United</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Fursan FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Hilal Al-Quds <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Shabab FC <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Blue Lock FC</strong></div>
+
+    <div class="week-label">Matchweek 2<span class="week-date">Thu, Sep 3</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Shabab FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Al Muluk FC <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Handala United <span class="vs">VS</span> Al-Ittihad</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Blue Lock FC <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Osoud Kanaan <span class="vs">VS</span> Fursan FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Golden Phoenix</strong></div>
+
+    <div class="week-label">Matchweek 3<span class="week-date">Thu, Sep 10</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Fursan FC <span class="vs">VS</span> Blue Lock FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hilal Al-Quds <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Straw Hats FC <span class="vs">VS</span> Shabab FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Al-Ittihad <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Handala United</strong></div>
+
+    <div class="week-label">Matchweek 4<span class="week-date">Thu, Sep 17</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Al-Ittihad <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Al Muluk FC <span class="vs">VS</span> Handala United</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Shabab FC <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Straw Hats FC <span class="vs">VS</span> Blue Lock FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Fursan FC</strong></div>
+
+    <div class="week-label">Matchweek 5<span class="week-date">Sun, Sep 20</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Golden Phoenix <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Handala United <span class="vs">VS</span> Shabab FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Blue Lock FC <span class="vs">VS</span> Al-Ittihad</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Fursan FC <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Osoud Kanaan</strong></div>
+
+    <div class="week-label">Matchweek 6<span class="week-date">Thu, Sep 24</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Handala United</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Blue Lock FC <span class="vs">VS</span> Shabab FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Golden Phoenix <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Fursan FC <span class="vs">VS</span> Al-Ittihad</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Osoud Kanaan <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Hilal Al-Quds</strong></div>
+
+    <div class="week-label">Matchweek 7<span class="week-date">Thu, Oct 1</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Blue Lock FC <span class="vs">VS</span> Handala United</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Osoud Kanaan <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Hilal Al-Quds <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Fursan FC <span class="vs">VS</span> Shabab FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Al-Ittihad</strong></div>
+
+    <div class="week-label">Matchweek 8<span class="week-date">Thu, Oct 8</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Blue Lock FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Osoud Kanaan <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Fursan FC <span class="vs">VS</span> Handala United</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Al-Ittihad <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Hilal Al-Quds <span class="vs">VS</span> Al Muluk FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Shabab FC</strong></div>
+
+    <div class="week-label">Matchweek 9<span class="week-date">Thu, Oct 15</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Shabab FC <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Al Muluk FC <span class="vs">VS</span> Fursan FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Al-Ittihad</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Handala United <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Golden Phoenix <span class="vs">VS</span> Blue Lock FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Straw Hats FC</strong></div>
+
+    <div class="week-label">Matchweek 10<span class="week-date">Thu, Oct 22</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Shabab FC <span class="vs">VS</span> Al-Ittihad</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Handala United <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Hidden Olive FC <span class="vs">VS</span> Straw Hats FC</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Golden Phoenix <span class="vs">VS</span> Fursan FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Blue Lock FC <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Al Muluk FC</strong></div>
+
+    <div class="week-label">Matchweek 11<span class="week-date">Thu, Oct 29</span></div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Al-Ittihad <span class="vs">VS</span> Hilal Al-Quds</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">6:45</span>PM</div>
+      <div class="sched-teams">Straw Hats FC <span class="vs">VS</span> Fursan FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Shabab FC <span class="vs">VS</span> Osoud Kanaan</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">8:00</span>PM</div>
+      <div class="sched-teams">Al Muluk FC <span class="vs">VS</span> Blue Lock FC</div>
+      <div class="sched-field">Field 2</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="sched-row">
+      <div class="sched-date"><span class="day">9:15</span>PM</div>
+      <div class="sched-teams">Handala United <span class="vs">VS</span> Golden Phoenix</div>
+      <div class="sched-field">Field 1</div>
+      <div class="sched-status"><span class="tag tag-upcoming">Upcoming</span></div>
+    </div>
+    <div class="bye-note">Bye: <strong>Hidden Olive FC</strong></div>
+
   </div>
 </section>
 
