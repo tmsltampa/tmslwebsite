@@ -519,7 +519,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
         </table>
       </div>
       <div class="standings-legend">
-        <span><span class="legend-dot" style="background:var(--gold)"></span>Seeds 1&ndash;6 receive a first-round bye</span>
+        <span><span class="legend-dot" style="background:var(--gold)"></span>Seeds 1&ndash;5 receive a first-round bye</span>
         <span>GP = Games Played &middot; GD = Goal Difference &middot; Pts = Points</span>
       </div>
     </div>
@@ -541,7 +541,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
       <div><span class="sec-eyebrow">Postseason</span><h2>Playoff format</h2></div>
     </div>
     <p style="color:var(--slate);font-size:15px;line-height:1.8;max-width:680px;margin-bottom:32px;">
-      All 10 teams make the playoffs. The bottom four seeds open with a pair of play-in matches to determine who advances. Winners then slot into the quarterfinal bracket, which is fixed — no reseeding between rounds.
+      All 11 teams make the playoffs. The bottom six seeds open with three play-in matches to determine who advances. Winners then slot into the quarterfinal bracket, which is fixed — no reseeding between rounds.
     </p>
     <div class="tbl-scroll">
       <table class="standings-table" id="bracketTable">
@@ -693,7 +693,7 @@ function showTab(tab){
       const gd = r.gf - r.ga;
       const gdStr = gd > 0 ? '+'+gd : gd;
       const tr = document.createElement('tr');
-      if(i < 6) tr.className = 'top3';
+      if(i < 5) tr.className = 'top3';
       const color = TEAM_COLORS[r.team] || '#8B9299';
       tr.innerHTML = `<td class="rank">${i+1}</td>
         <td><div class="team-cell"><span class="team-dot" style="background:${color}"></span>${r.team}</div></td>
@@ -706,17 +706,18 @@ function showTab(tab){
   }
   function renderBracket(rows){
     const tbody = document.getElementById('bracketBody');
-    if(rows.length < 10){
-      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:var(--slate);padding:40px;">Bracket available once all 10 teams have standings data.</td></tr>';
+    if(rows.length < 11){
+      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:var(--slate);padding:40px;">Bracket available once all 11 teams have standings data.</td></tr>';
       return;
     }
     const seed = (n) => rows[n-1].team;
     tbody.innerHTML = `
+      <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(6) ${seed(6)} vs (11) ${seed(11)}</td></tr>
       <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(7) ${seed(7)} vs (10) ${seed(10)}</td></tr>
       <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(8) ${seed(8)} vs (9) ${seed(9)}</td></tr>
       <tr><td>Quarterfinal 1</td><td>(1) ${seed(1)} vs Lowest Remaining Seed</td></tr>
       <tr><td>Quarterfinal 2</td><td>(2) ${seed(2)} vs 2nd Lowest Remaining Seed</td></tr>
-      <tr><td>Quarterfinal 3</td><td>(3) ${seed(3)} vs (6) ${seed(6)}</td></tr>
+      <tr><td>Quarterfinal 3</td><td>(3) ${seed(3)} vs 3rd Lowest Remaining Seed</td></tr>
       <tr><td>Quarterfinal 4</td><td>(4) ${seed(4)} vs (5) ${seed(5)}</td></tr>
       <tr><td>Semifinal 1</td><td>Winner of QF1 vs Winner of QF4</td></tr>
       <tr><td>Semifinal 2</td><td>Winner of QF2 vs Winner of QF3</td></tr>
