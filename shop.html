@@ -159,9 +159,24 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .shop-card .price{
   font-family:'Oswald';font-size:14px;letter-spacing:0.04em;color:var(--gold-light);margin-top:6px;
 }
-.shop-card .desc{color:var(--slate);font-size:13px;line-height:1.6;margin-top:10px;flex:1;}
+.shop-card .desc{color:var(--slate);font-size:13px;line-height:1.6;margin-top:10px;}
+.shop-opts{margin-top:20px;display:flex;flex-direction:column;gap:16px;}
+.shop-field label{display:block;font-family:'Oswald';font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
+.shop-field select, .shop-field input{
+  width:100%;background:var(--night);border:1px solid var(--line);color:var(--cream);
+  padding:11px 12px;border-radius:3px;font-family:'Inter';font-size:14px;
+}
+.shop-field select:focus, .shop-field input:focus{outline:none;border-color:var(--gold);}
+.size-toggle{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+.size-toggle label{
+  flex:1;text-align:center;padding:10px 0;font-family:'Oswald';font-size:12px;letter-spacing:0.05em;
+  text-transform:uppercase;color:var(--slate);cursor:pointer;transition:all .2s;
+}
+.size-toggle label:first-child{border-right:1px solid var(--line);}
+.size-toggle input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.size-toggle input:checked + label{background:var(--gold);color:var(--night);}
 .shop-btn{
-  margin-top:20px;display:block;text-align:center;padding:13px 0;border-radius:3px;
+  margin-top:20px;display:block;width:100%;text-align:center;padding:13px 0;border-radius:3px;
   font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
   background:rgba(255,255,255,0.06);color:var(--slate);border:1px solid var(--line);
   cursor:not-allowed;
@@ -249,7 +264,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   <div class="container">
     <div class="shop-banner">
       <span class="dot"></span>
-      <p><strong>Store coming soon.</strong> Secure checkout powered by Stripe is being set up &mdash; jersey designs, sizing, and pricing will be posted here shortly.</p>
+      <p><strong>Store coming soon.</strong> Secure checkout is being set up &mdash; jersey designs and pricing will be posted here shortly. You can already preview team, size, and number options below.</p>
     </div>
     <div class="sec-head">
       <div><span class="sec-eyebrow">Merch</span><h2>Jerseys</h2></div>
@@ -262,7 +277,43 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
         <div class="shop-body">
           <h3>Home Jersey</h3>
           <div class="price">Price TBA</div>
-          <p class="desc">Official TMSL home kit. Sizes and customization options coming soon.</p>
+          <p class="desc">Official TMSL home kit.</p>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label for="team-home">Team</label>
+              <select id="team-home">
+                <option value="">Select team&hellip;</option>
+                <option>Al Muluk FC</option>
+                <option>Al-Ittihad</option>
+                <option>Blue Lock FC</option>
+                <option>Fursan FC</option>
+                <option>Golden Phoenix</option>
+                <option>Handala United</option>
+                <option>Hidden Olive FC</option>
+                <option>Hilal Al Quds</option>
+                <option>Osoud Kanaan</option>
+                <option>Shabab FC</option>
+                <option>Straw Hats FC</option>
+              </select>
+            </div>
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-home" id="fit-home-adult" checked>
+                <label for="fit-home-adult">Adult</label>
+                <input type="radio" name="fit-home" id="fit-home-kids">
+                <label for="fit-home-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-home">Size</label>
+              <select id="size-home" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-home">Jersey Number</label>
+              <input type="number" id="number-home" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
           <span class="shop-btn">Coming Soon</span>
         </div>
       </div>
@@ -273,7 +324,43 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
         <div class="shop-body">
           <h3>Away Jersey</h3>
           <div class="price">Price TBA</div>
-          <p class="desc">Official TMSL away kit. Sizes and customization options coming soon.</p>
+          <p class="desc">Official TMSL away kit.</p>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label for="team-away">Team</label>
+              <select id="team-away">
+                <option value="">Select team&hellip;</option>
+                <option>Al Muluk FC</option>
+                <option>Al-Ittihad</option>
+                <option>Blue Lock FC</option>
+                <option>Fursan FC</option>
+                <option>Golden Phoenix</option>
+                <option>Handala United</option>
+                <option>Hidden Olive FC</option>
+                <option>Hilal Al Quds</option>
+                <option>Osoud Kanaan</option>
+                <option>Shabab FC</option>
+                <option>Straw Hats FC</option>
+              </select>
+            </div>
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-away" id="fit-away-adult" checked>
+                <label for="fit-away-adult">Adult</label>
+                <input type="radio" name="fit-away" id="fit-away-kids">
+                <label for="fit-away-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-away">Size</label>
+              <select id="size-away" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-away">Jersey Number</label>
+              <input type="number" id="number-away" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
           <span class="shop-btn">Coming Soon</span>
         </div>
       </div>
@@ -285,6 +372,42 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
           <h3>Training Jersey</h3>
           <div class="price">Price TBA</div>
           <p class="desc">Lightweight training kit for practice and warm-ups.</p>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label for="team-training">Team</label>
+              <select id="team-training">
+                <option value="">Select team&hellip;</option>
+                <option>Al Muluk FC</option>
+                <option>Al-Ittihad</option>
+                <option>Blue Lock FC</option>
+                <option>Fursan FC</option>
+                <option>Golden Phoenix</option>
+                <option>Handala United</option>
+                <option>Hidden Olive FC</option>
+                <option>Hilal Al Quds</option>
+                <option>Osoud Kanaan</option>
+                <option>Shabab FC</option>
+                <option>Straw Hats FC</option>
+              </select>
+            </div>
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-training" id="fit-training-adult" checked>
+                <label for="fit-training-adult">Adult</label>
+                <input type="radio" name="fit-training" id="fit-training-kids">
+                <label for="fit-training-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-training">Size</label>
+              <select id="size-training" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-training">Jersey Number</label>
+              <input type="number" id="number-training" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
           <span class="shop-btn">Coming Soon</span>
         </div>
       </div>
@@ -348,6 +471,20 @@ document.getElementById('burgerBtn').addEventListener('click', function(){
 });
 document.querySelectorAll('.mobile-menu a').forEach(a=>{
   a.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+document.querySelectorAll('.shop-card').forEach(function(card){
+  var sizeSelect = card.querySelector('.size-select');
+  var fitInputs = card.querySelectorAll('.size-toggle input');
+  function renderSizes(){
+    var isKids = card.querySelector('.size-toggle input[id*="kids"]').checked;
+    var list = (isKids ? sizeSelect.dataset.kids : sizeSelect.dataset.adult).split(',');
+    var current = sizeSelect.value;
+    sizeSelect.innerHTML = list.map(function(s){ return '<option value="'+s+'">'+s+'</option>'; }).join('');
+    if(list.indexOf(current) > -1) sizeSelect.value = current;
+  }
+  fitInputs.forEach(function(input){ input.addEventListener('change', renderSizes); });
+  renderSizes();
 });
 </script>
 
