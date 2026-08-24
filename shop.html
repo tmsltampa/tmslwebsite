@@ -154,6 +154,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   border-bottom:1px solid var(--line);padding:20px;
 }
 .shop-img img{width:auto;height:100%;max-width:60%;object-fit:contain;}
+.shop-img svg{width:56px;height:56px;opacity:0.3;}
 .shop-body{padding:24px;display:flex;flex-direction:column;flex:1;}
 .shop-card h3{font-size:17px;font-weight:600;}
 .shop-card .price{
@@ -589,6 +590,53 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
             <div class="shop-field">
               <label for="number-straw-hats-fc">Jersey Number</label>
               <input type="number" id="number-straw-hats-fc" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 5.5c-.5-.5-1.2-.7-2-.5l-2 .5c-.3-1.5-1.5-2.5-3-2.5h-2c-1.5 0-2.7 1-3 2.5l-2-.5c-.8-.2-1.5 0-2 .5-.5.5-.7 1.3-.5 2l1 4c.2.8 1 1.5 1.9 1.5H8v9h8v-9h1.1c.9 0 1.7-.7 1.9-1.5l1-4c.2-.7 0-1.5-.5-2zM11 6c0-.5.4-1 1-1s1 .5 1 1-.4 1-1 1-1-.5-1-1z"/></svg>
+        </div>
+        <div class="shop-body">
+          <h3>Goalkeeper Jersey</h3>
+          <div class="price">Price TBA</div>
+          <p class="desc">One goalkeeper design, printed with your team's crest.</p>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label for="team-gk">Team</label>
+              <select id="team-gk">
+                <option value="">Select team&hellip;</option>
+                <option>Al Muluk FC</option>
+                <option>Al-Ittihad</option>
+                <option>Blue Lock FC</option>
+                <option>Fursan FC</option>
+                <option>Golden Phoenix</option>
+                <option>Handala United</option>
+                <option>Hidden Olive FC</option>
+                <option>Hilal Al Quds</option>
+                <option>Osoud Kanaan</option>
+                <option>Shabab FC</option>
+                <option>Straw Hats FC</option>
+              </select>
+            </div>
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-gk" id="fit-gk-adult" checked>
+                <label for="fit-gk-adult">Adult</label>
+                <input type="radio" name="fit-gk" id="fit-gk-kids">
+                <label for="fit-gk-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-gk">Size</label>
+              <select id="size-gk" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-gk">Jersey Number</label>
+              <input type="number" id="number-gk" min="0" max="99" placeholder="0&ndash;99">
             </div>
           </div>
           <span class="shop-btn">Coming Soon</span>
