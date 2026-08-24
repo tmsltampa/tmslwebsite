@@ -146,14 +146,14 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
 .shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
 .shop-banner p strong{color:var(--cream);}
-.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
 .shop-card{background:var(--night-2);display:flex;flex-direction:column;}
 .shop-img{
-  aspect-ratio:1/1;background:var(--pitch);
+  aspect-ratio:4/3;background:var(--pitch);
   display:flex;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--line);padding:20px;
 }
-.shop-img svg{width:64px;height:64px;opacity:0.3;}
+.shop-img img{width:auto;height:100%;max-width:60%;object-fit:contain;}
 .shop-body{padding:24px;display:flex;flex-direction:column;flex:1;}
 .shop-card h3{font-size:17px;font-weight:600;}
 .shop-card .price{
@@ -271,141 +271,324 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
     </div>
     <div class="shop-grid">
       <div class="shop-card">
-        <div class="shop-img">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
-        </div>
+        <div class="shop-img"><img src="assets/logos/Al Muluk FC.png" alt="Al Muluk FC logo"></div>
         <div class="shop-body">
-          <h3>Home Jersey</h3>
+          <h3>Al Muluk FC</h3>
           <div class="price">Price TBA</div>
-          <p class="desc">Official TMSL home kit.</p>
           <div class="shop-opts">
-            <div class="shop-field">
-              <label for="team-home">Team</label>
-              <select id="team-home">
-                <option value="">Select team&hellip;</option>
-                <option>Al Muluk FC</option>
-                <option>Al-Ittihad</option>
-                <option>Blue Lock FC</option>
-                <option>Fursan FC</option>
-                <option>Golden Phoenix</option>
-                <option>Handala United</option>
-                <option>Hidden Olive FC</option>
-                <option>Hilal Al Quds</option>
-                <option>Osoud Kanaan</option>
-                <option>Shabab FC</option>
-                <option>Straw Hats FC</option>
-              </select>
-            </div>
             <div class="shop-field">
               <label>Fit</label>
               <div class="size-toggle">
-                <input type="radio" name="fit-home" id="fit-home-adult" checked>
-                <label for="fit-home-adult">Adult</label>
-                <input type="radio" name="fit-home" id="fit-home-kids">
-                <label for="fit-home-kids">Kids</label>
+                <input type="radio" name="fit-al-muluk-fc" id="fit-al-muluk-fc-adult" checked>
+                <label for="fit-al-muluk-fc-adult">Adult</label>
+                <input type="radio" name="fit-al-muluk-fc" id="fit-al-muluk-fc-kids">
+                <label for="fit-al-muluk-fc-kids">Kids</label>
               </div>
             </div>
             <div class="shop-field">
-              <label for="size-home">Size</label>
-              <select id="size-home" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+              <label for="size-al-muluk-fc">Size</label>
+              <select id="size-al-muluk-fc" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
             </div>
             <div class="shop-field">
-              <label for="number-home">Jersey Number</label>
-              <input type="number" id="number-home" min="0" max="99" placeholder="0&ndash;99">
+              <label for="number-al-muluk-fc">Jersey Number</label>
+              <input type="number" id="number-al-muluk-fc" min="0" max="99" placeholder="0&ndash;99">
             </div>
           </div>
           <span class="shop-btn">Coming Soon</span>
         </div>
       </div>
       <div class="shop-card">
-        <div class="shop-img">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
-        </div>
+        <div class="shop-img"><img src="assets/logos/Al-Ittihad.png" alt="Al-Ittihad logo"></div>
         <div class="shop-body">
-          <h3>Away Jersey</h3>
+          <h3>Al-Ittihad</h3>
           <div class="price">Price TBA</div>
-          <p class="desc">Official TMSL away kit.</p>
           <div class="shop-opts">
-            <div class="shop-field">
-              <label for="team-away">Team</label>
-              <select id="team-away">
-                <option value="">Select team&hellip;</option>
-                <option>Al Muluk FC</option>
-                <option>Al-Ittihad</option>
-                <option>Blue Lock FC</option>
-                <option>Fursan FC</option>
-                <option>Golden Phoenix</option>
-                <option>Handala United</option>
-                <option>Hidden Olive FC</option>
-                <option>Hilal Al Quds</option>
-                <option>Osoud Kanaan</option>
-                <option>Shabab FC</option>
-                <option>Straw Hats FC</option>
-              </select>
-            </div>
             <div class="shop-field">
               <label>Fit</label>
               <div class="size-toggle">
-                <input type="radio" name="fit-away" id="fit-away-adult" checked>
-                <label for="fit-away-adult">Adult</label>
-                <input type="radio" name="fit-away" id="fit-away-kids">
-                <label for="fit-away-kids">Kids</label>
+                <input type="radio" name="fit-al-ittihad" id="fit-al-ittihad-adult" checked>
+                <label for="fit-al-ittihad-adult">Adult</label>
+                <input type="radio" name="fit-al-ittihad" id="fit-al-ittihad-kids">
+                <label for="fit-al-ittihad-kids">Kids</label>
               </div>
             </div>
             <div class="shop-field">
-              <label for="size-away">Size</label>
-              <select id="size-away" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+              <label for="size-al-ittihad">Size</label>
+              <select id="size-al-ittihad" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
             </div>
             <div class="shop-field">
-              <label for="number-away">Jersey Number</label>
-              <input type="number" id="number-away" min="0" max="99" placeholder="0&ndash;99">
+              <label for="number-al-ittihad">Jersey Number</label>
+              <input type="number" id="number-al-ittihad" min="0" max="99" placeholder="0&ndash;99">
             </div>
           </div>
           <span class="shop-btn">Coming Soon</span>
         </div>
       </div>
       <div class="shop-card">
-        <div class="shop-img">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
-        </div>
+        <div class="shop-img"><img src="assets/logos/Blue Lock FC.png" alt="Blue Lock FC logo"></div>
         <div class="shop-body">
-          <h3>Training Jersey</h3>
+          <h3>Blue Lock FC</h3>
           <div class="price">Price TBA</div>
-          <p class="desc">Lightweight training kit for practice and warm-ups.</p>
           <div class="shop-opts">
-            <div class="shop-field">
-              <label for="team-training">Team</label>
-              <select id="team-training">
-                <option value="">Select team&hellip;</option>
-                <option>Al Muluk FC</option>
-                <option>Al-Ittihad</option>
-                <option>Blue Lock FC</option>
-                <option>Fursan FC</option>
-                <option>Golden Phoenix</option>
-                <option>Handala United</option>
-                <option>Hidden Olive FC</option>
-                <option>Hilal Al Quds</option>
-                <option>Osoud Kanaan</option>
-                <option>Shabab FC</option>
-                <option>Straw Hats FC</option>
-              </select>
-            </div>
             <div class="shop-field">
               <label>Fit</label>
               <div class="size-toggle">
-                <input type="radio" name="fit-training" id="fit-training-adult" checked>
-                <label for="fit-training-adult">Adult</label>
-                <input type="radio" name="fit-training" id="fit-training-kids">
-                <label for="fit-training-kids">Kids</label>
+                <input type="radio" name="fit-blue-lock-fc" id="fit-blue-lock-fc-adult" checked>
+                <label for="fit-blue-lock-fc-adult">Adult</label>
+                <input type="radio" name="fit-blue-lock-fc" id="fit-blue-lock-fc-kids">
+                <label for="fit-blue-lock-fc-kids">Kids</label>
               </div>
             </div>
             <div class="shop-field">
-              <label for="size-training">Size</label>
-              <select id="size-training" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+              <label for="size-blue-lock-fc">Size</label>
+              <select id="size-blue-lock-fc" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
             </div>
             <div class="shop-field">
-              <label for="number-training">Jersey Number</label>
-              <input type="number" id="number-training" min="0" max="99" placeholder="0&ndash;99">
+              <label for="number-blue-lock-fc">Jersey Number</label>
+              <input type="number" id="number-blue-lock-fc" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Fursan FC.png" alt="Fursan FC logo"></div>
+        <div class="shop-body">
+          <h3>Fursan FC</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-fursan-fc" id="fit-fursan-fc-adult" checked>
+                <label for="fit-fursan-fc-adult">Adult</label>
+                <input type="radio" name="fit-fursan-fc" id="fit-fursan-fc-kids">
+                <label for="fit-fursan-fc-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-fursan-fc">Size</label>
+              <select id="size-fursan-fc" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-fursan-fc">Jersey Number</label>
+              <input type="number" id="number-fursan-fc" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Golden Phoenix.png" alt="Golden Phoenix logo"></div>
+        <div class="shop-body">
+          <h3>Golden Phoenix</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-golden-phoenix" id="fit-golden-phoenix-adult" checked>
+                <label for="fit-golden-phoenix-adult">Adult</label>
+                <input type="radio" name="fit-golden-phoenix" id="fit-golden-phoenix-kids">
+                <label for="fit-golden-phoenix-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-golden-phoenix">Size</label>
+              <select id="size-golden-phoenix" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-golden-phoenix">Jersey Number</label>
+              <input type="number" id="number-golden-phoenix" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Handala United.png" alt="Handala United logo"></div>
+        <div class="shop-body">
+          <h3>Handala United</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-handala-united" id="fit-handala-united-adult" checked>
+                <label for="fit-handala-united-adult">Adult</label>
+                <input type="radio" name="fit-handala-united" id="fit-handala-united-kids">
+                <label for="fit-handala-united-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-handala-united">Size</label>
+              <select id="size-handala-united" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-handala-united">Jersey Number</label>
+              <input type="number" id="number-handala-united" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC &mdash; Home logo"></div>
+        <div class="shop-body">
+          <h3>Hidden Olive FC &mdash; Home</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-hidden-olive-fc-home" id="fit-hidden-olive-fc-home-adult" checked>
+                <label for="fit-hidden-olive-fc-home-adult">Adult</label>
+                <input type="radio" name="fit-hidden-olive-fc-home" id="fit-hidden-olive-fc-home-kids">
+                <label for="fit-hidden-olive-fc-home-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-hidden-olive-fc-home">Size</label>
+              <select id="size-hidden-olive-fc-home" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-hidden-olive-fc-home">Jersey Number</label>
+              <input type="number" id="number-hidden-olive-fc-home" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC &mdash; Away logo"></div>
+        <div class="shop-body">
+          <h3>Hidden Olive FC &mdash; Away</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-hidden-olive-fc-away" id="fit-hidden-olive-fc-away-adult" checked>
+                <label for="fit-hidden-olive-fc-away-adult">Adult</label>
+                <input type="radio" name="fit-hidden-olive-fc-away" id="fit-hidden-olive-fc-away-kids">
+                <label for="fit-hidden-olive-fc-away-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-hidden-olive-fc-away">Size</label>
+              <select id="size-hidden-olive-fc-away" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-hidden-olive-fc-away">Jersey Number</label>
+              <input type="number" id="number-hidden-olive-fc-away" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Hilal Al Quds.png" alt="Hilal Al Quds logo"></div>
+        <div class="shop-body">
+          <h3>Hilal Al Quds</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-hilal-al-quds" id="fit-hilal-al-quds-adult" checked>
+                <label for="fit-hilal-al-quds-adult">Adult</label>
+                <input type="radio" name="fit-hilal-al-quds" id="fit-hilal-al-quds-kids">
+                <label for="fit-hilal-al-quds-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-hilal-al-quds">Size</label>
+              <select id="size-hilal-al-quds" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-hilal-al-quds">Jersey Number</label>
+              <input type="number" id="number-hilal-al-quds" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Osoud Kanaan.png" alt="Osoud Kanaan logo"></div>
+        <div class="shop-body">
+          <h3>Osoud Kanaan</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-osoud-kanaan" id="fit-osoud-kanaan-adult" checked>
+                <label for="fit-osoud-kanaan-adult">Adult</label>
+                <input type="radio" name="fit-osoud-kanaan" id="fit-osoud-kanaan-kids">
+                <label for="fit-osoud-kanaan-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-osoud-kanaan">Size</label>
+              <select id="size-osoud-kanaan" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-osoud-kanaan">Jersey Number</label>
+              <input type="number" id="number-osoud-kanaan" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Shabab FC.png" alt="Shabab FC logo"></div>
+        <div class="shop-body">
+          <h3>Shabab FC</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-shabab-fc" id="fit-shabab-fc-adult" checked>
+                <label for="fit-shabab-fc-adult">Adult</label>
+                <input type="radio" name="fit-shabab-fc" id="fit-shabab-fc-kids">
+                <label for="fit-shabab-fc-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-shabab-fc">Size</label>
+              <select id="size-shabab-fc" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-shabab-fc">Jersey Number</label>
+              <input type="number" id="number-shabab-fc" min="0" max="99" placeholder="0&ndash;99">
+            </div>
+          </div>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-img"><img src="assets/logos/Straw Hats FC.png" alt="Straw Hats FC logo"></div>
+        <div class="shop-body">
+          <h3>Straw Hats FC</h3>
+          <div class="price">Price TBA</div>
+          <div class="shop-opts">
+            <div class="shop-field">
+              <label>Fit</label>
+              <div class="size-toggle">
+                <input type="radio" name="fit-straw-hats-fc" id="fit-straw-hats-fc-adult" checked>
+                <label for="fit-straw-hats-fc-adult">Adult</label>
+                <input type="radio" name="fit-straw-hats-fc" id="fit-straw-hats-fc-kids">
+                <label for="fit-straw-hats-fc-kids">Kids</label>
+              </div>
+            </div>
+            <div class="shop-field">
+              <label for="size-straw-hats-fc">Size</label>
+              <select id="size-straw-hats-fc" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
+            </div>
+            <div class="shop-field">
+              <label for="number-straw-hats-fc">Jersey Number</label>
+              <input type="number" id="number-straw-hats-fc" min="0" max="99" placeholder="0&ndash;99">
             </div>
           </div>
           <span class="shop-btn">Coming Soon</span>
