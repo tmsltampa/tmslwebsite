@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Board | Tampa Muslim Soccer League</title>
+<title>Shop | Tampa Muslim Soccer League</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
@@ -119,39 +119,52 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   .navlinks{display:none;}
   .burger{display:flex;}
   .footer-grid{grid-template-columns:1fr 1fr;}
-  .board-grid{grid-template-columns:1fr !important;}
+  .shop-grid{grid-template-columns:1fr 1fr !important;}
 }
 @media (max-width:560px){
   .footer-grid{grid-template-columns:1fr;}
+  .shop-grid{grid-template-columns:1fr !important;}
 }
 /* PAGE HERO (sub-pages) */
 .page-hero{
   position:relative;padding:170px 24px 70px;
   background:
     linear-gradient(180deg, rgba(18,18,18,0.55), var(--night) 90%),
-    url('assets/gallery/duel.jpg') center 30%/cover no-repeat;
+    url('assets/gallery/match-winners.jpg') center 30%/cover no-repeat;
 }
 .page-hero-inner{max-width:1180px;margin:0 auto;}
 .page-hero h1{font-size:clamp(40px,6vw,68px);font-weight:700;}
 .page-hero p{color:var(--slate);font-size:17px;margin-top:14px;max-width:520px;}
 .breadcrumb{font-size:12px;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase;margin-bottom:18px;}
-/* BOARD */
-.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-.board-card{background:var(--night-2);padding:32px;text-align:center;}
-.board-avatar{
-  width:80px;height:80px;border-radius:50%;margin:0 auto 18px;
-  background:var(--pitch);border:1px solid var(--line);
+/* SHOP */
+.shop-banner{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:var(--night-2);border:1px solid var(--line);border-radius:4px;
+  padding:16px 22px;margin-bottom:48px;
+}
+.shop-banner .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+.shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
+.shop-banner p strong{color:var(--cream);}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.shop-card{background:var(--night-2);display:flex;flex-direction:column;}
+.shop-img{
+  aspect-ratio:1/1;background:var(--pitch);
   display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
+  border-bottom:1px solid var(--line);
 }
-.board-avatar img{width:36px;height:36px;opacity:0.5;}
-.board-avatar.has-photo img{
-  width:100%;height:100%;object-fit:cover;object-position:center top;opacity:1;
+.shop-img svg{width:64px;height:64px;opacity:0.3;}
+.shop-body{padding:24px;display:flex;flex-direction:column;flex:1;}
+.shop-card h3{font-size:17px;font-weight:600;}
+.shop-card .price{
+  font-family:'Oswald';font-size:14px;letter-spacing:0.04em;color:var(--gold-light);margin-top:6px;
 }
-.board-card h3{font-size:16px;font-weight:600;color:var(--slate);}
-.board-card .role{
-  font-family:'Oswald';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--gold-light);margin-top:6px;
+.shop-card .desc{color:var(--slate);font-size:13px;line-height:1.6;margin-top:10px;flex:1;}
+.shop-btn{
+  margin-top:20px;display:block;text-align:center;padding:13px 0;border-radius:3px;
+  font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+  background:rgba(255,255,255,0.06);color:var(--slate);border:1px solid var(--line);
+  cursor:not-allowed;
 }
 /* Mobile menu fullscreen override — belt and suspenders */
 @media (max-width:900px){
@@ -203,9 +216,9 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <a href="standings.html">Standings</a>
 <a href="rosters.html">Rosters</a>
 <a href="rules.html">Rules</a>
-<a href="board.html" class="active">Board</a>
+<a href="board.html">Board</a>
 <a href="sponsors.html">Sponsors</a>
-<a href="shop.html">Shop</a>
+<a href="shop.html" class="active">Shop</a>
 <a href="contact.html">Contact</a>
     </div>
     <a href="register.html" class="nav-cta">Register</a>
@@ -227,70 +240,62 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <span class="breadcrumb">League / Board</span>
-    <h1>Board &amp; Staff</h1>
-    <p>Meet the people who run Tampa Muslim Soccer League.</p>
+    <span class="breadcrumb">League / Shop</span>
+    <h1>TMSL Gear</h1>
+    <p>Official jerseys and merch from Tampa Muslim Soccer League. Checkout is being set up &mdash; browse what's coming.</p>
   </div>
 </section>
 <section class="sec">
   <div class="container">
-    <div class="sec-head">
-      <div><span class="sec-eyebrow">Leadership</span><h2>League Board</h2></div>
+    <div class="shop-banner">
+      <span class="dot"></span>
+      <p><strong>Store coming soon.</strong> Secure checkout powered by Stripe is being set up &mdash; jersey designs, sizing, and pricing will be posted here shortly.</p>
     </div>
-    <div class="board-grid">
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/osama.jpg" alt="Osama Haddabah"></div>
-        <h3>Osama Haddabah</h3>
-        <div class="role">Commissioner</div>
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Merch</span><h2>Jerseys</h2></div>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-img">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
+        </div>
+        <div class="shop-body">
+          <h3>Home Jersey</h3>
+          <div class="price">Price TBA</div>
+          <p class="desc">Official TMSL home kit. Sizes and customization options coming soon.</p>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
       </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/jassim.jpg" alt="Jassim Hamdan"></div>
-        <h3>Jassim Hamdan</h3>
-        <div class="role">Vice President</div>
+      <div class="shop-card">
+        <div class="shop-img">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
+        </div>
+        <div class="shop-body">
+          <h3>Away Jersey</h3>
+          <div class="price">Price TBA</div>
+          <p class="desc">Official TMSL away kit. Sizes and customization options coming soon.</p>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
       </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/basim.jpg" alt="Basim Saed"></div>
-        <h3>Basim Saed</h3>
-        <div class="role">Treasurer</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/ziyad.jpg" alt="Ziyad Al-Khawaldeh"></div>
-        <h3>Ziyad Al-Khawaldeh</h3>
-        <div class="role">Secretary</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/shaker.jpg" alt="Shaker Saleh"></div>
-        <h3>Shaker Saleh</h3>
-        <div class="role">Operations</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/ahmed.jpg" alt="Ahmad Haddabeh"></div>
-        <h3>Ahmad Haddabeh</h3>
-        <div class="role">Event Coordinator</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
-        <h3>Thomas Kalach</h3>
-        <div class="role">Communications</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar has-photo"><img src="assets/board/dahood.jpg" alt="Dahood Qaisi"></div>
-        <h3>Dahood Qaisi</h3>
-        <div class="role">Information Manager</div>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
-        <h3>Adam Abualteen</h3>
-        <div class="role">Social Media Director</div>
+      <div class="shop-card">
+        <div class="shop-img">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 2l-2 2H10L8 2 2 6l2 4h2v12h12V10h2l2-4-6-4zM12 5.5c.8 0 1.5-.28 2-.74L15.15 6H15v2h-6V6h-.15L9.98 4.76c.5.46 1.22.74 2.02.74z"/></svg>
+        </div>
+        <div class="shop-body">
+          <h3>Training Jersey</h3>
+          <div class="price">Price TBA</div>
+          <p class="desc">Lightweight training kit for practice and warm-ups.</p>
+          <span class="shop-btn">Coming Soon</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <section class="sec" style="background:var(--night-2);">
   <div class="container" style="max-width:780px;text-align:center;">
-    <span class="sec-eyebrow">Get Involved</span>
-    <h2 style="margin-bottom:18px;">Interested in Leadership?</h2>
-    <p style="color:var(--slate);font-size:16px;line-height:1.8;">TMSL is run entirely by volunteers from the community. If you'd like to get involved with the board or help behind the scenes, reach out through the contact page.</p>
+    <span class="sec-eyebrow">Stay Updated</span>
+    <h2 style="margin-bottom:18px;">Want To Know When It Launches?</h2>
+    <p style="color:var(--slate);font-size:16px;line-height:1.8;">Follow TMSL on Instagram or reach out through the contact page and we'll let you know as soon as jersey sales go live.</p>
     <a href="contact.html" class="nav-cta" style="display:inline-block;margin-top:28px;padding:14px 30px;">Get In Touch</a>
   </div>
 </section>
