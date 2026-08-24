@@ -142,8 +142,12 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   width:80px;height:80px;border-radius:50%;margin:0 auto 18px;
   background:var(--pitch);border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
 .board-avatar img{width:36px;height:36px;opacity:0.5;}
+.board-avatar.has-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;opacity:1;
+}
 .board-card h3{font-size:16px;font-weight:600;color:var(--slate);}
 .board-card .role{
   font-family:'Oswald';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
@@ -233,32 +237,32 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
     </div>
     <div class="board-grid">
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/osama.jpg" alt="Osama Haddabah"></div>
         <h3>Osama Haddabah</h3>
         <div class="role">President</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/jassim.jpg" alt="Jassim Hamdan"></div>
         <h3>Jassim Hamdan</h3>
         <div class="role">Vice President</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/basim.jpg" alt="Basim Saed"></div>
         <h3>Basim Saed</h3>
         <div class="role">Treasurer</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/ziyad.jpg" alt="Ziyad Al-Khawaldeh"></div>
         <h3>Ziyad Al-Khawaldeh</h3>
         <div class="role">Secretary</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/shaker.jpg" alt="Shaker Saleh"></div>
         <h3>Shaker Saleh</h3>
         <div class="role">Operations</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/ahmed.jpg" alt="Ahmad Haddabeh"></div>
         <h3>Ahmad Haddabeh</h3>
         <div class="role">Event Coordinator</div>
       </div>
@@ -268,7 +272,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
         <div class="role">Communications</div>
       </div>
       <div class="board-card">
-        <div class="board-avatar"><img src="assets/gallery/crest.png" alt=""></div>
+        <div class="board-avatar has-photo"><img src="assets/board/dahood.jpg" alt="Dahood Qaisi"></div>
         <h3>Dahood Qaisi</h3>
         <div class="role">Information Manager</div>
       </div>
