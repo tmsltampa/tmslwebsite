@@ -67,6 +67,30 @@ img{display:block;max-width:100%;}
 .navlinks a.active::after{
   content:'';position:absolute;bottom:-22px;left:0;right:0;height:2px;background:var(--gold);
 }
+.nav-dropdown{position:relative;}
+.nav-dropdown summary{
+  font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--slate);cursor:pointer;list-style:none;
+  display:flex;align-items:center;gap:5px;position:relative;transition:color .2s;
+}
+.nav-dropdown summary::-webkit-details-marker{display:none;}
+.nav-dropdown summary::after{
+  content:'';width:0;height:0;margin-top:2px;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  border-top:5px solid currentColor;transition:transform .2s;
+}
+.nav-dropdown details[open] summary::after{transform:rotate(180deg);}
+.nav-dropdown summary:hover, .nav-dropdown summary.active{color:var(--cream);}
+.nav-dropdown .dropdown-menu{
+  position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);
+  background:var(--night-2);border:1px solid var(--line);border-radius:4px;
+  min-width:150px;padding:8px 0;box-shadow:0 12px 24px rgba(0,0,0,0.4);z-index:1100;
+}
+.nav-dropdown .dropdown-menu a{
+  display:block;padding:10px 18px;font-size:13px;font-weight:500;letter-spacing:0.04em;
+  text-transform:uppercase;color:var(--slate);transition:all .15s;
+}
+.nav-dropdown .dropdown-menu a:hover, .nav-dropdown .dropdown-menu a.active{color:var(--cream);background:rgba(255,255,255,0.04);}
 .nav-cta{
   background:var(--green);color:var(--cream);padding:10px 22px;border-radius:3px;
   font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
@@ -83,6 +107,10 @@ img{display:block;max-width:100%;}
 .mobile-menu a{
   padding:16px 4px;border-bottom:1px solid var(--line);
   font-family:'Oswald';font-size:18px;letter-spacing:0.04em;text-transform:uppercase;
+}
+.mobile-menu-label{
+  font-family:'Oswald';font-size:11px;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gold-light);padding:18px 4px 4px;opacity:0.85;
 }
 /* ===== HERO ===== */
 .hero{
@@ -475,10 +503,17 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <a href="schedule.html">Schedule</a>
 <a href="standings.html" class="active">Standings</a>
 <a href="rosters.html">Rosters</a>
+<a href="shop.html">Shop</a>
+<div class="nav-dropdown">
+<details>
+<summary>League</summary>
+<div class="dropdown-menu">
 <a href="rules.html">Rules</a>
 <a href="board.html">Board</a>
 <a href="sponsors.html">Sponsors</a>
-<a href="shop.html">Shop</a>
+</div>
+</details>
+</div>
 <a href="contact.html">Contact</a>
     </div>
     <a href="register.html" class="nav-cta">Register</a>
@@ -490,10 +525,11 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <a href="standings.html">Standings</a>
 <a href="rosters.html">Rosters</a>
 <a href="register.html">Registration</a>
+<a href="shop.html">Shop</a>
+<div class="mobile-menu-label">League</div>
 <a href="rules.html">Rules</a>
 <a href="board.html">Board</a>
 <a href="sponsors.html">Sponsors</a>
-<a href="shop.html">Shop</a>
 <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -599,6 +635,21 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 </footer>
 
 <script>
+
+document.querySelectorAll('.nav-dropdown details').forEach(function(det){
+  det.addEventListener('toggle', function(){
+    if(det.open){
+      document.querySelectorAll('.nav-dropdown details').forEach(function(other){
+        if(other !== det) other.open = false;
+      });
+    }
+  });
+});
+document.addEventListener('click', function(e){
+  document.querySelectorAll('.nav-dropdown details[open]').forEach(function(det){
+    if(!det.contains(e.target)) det.open = false;
+  });
+});
 document.getElementById('burgerBtn').addEventListener('click', function(){
   document.getElementById('mobileMenu').classList.toggle('open');
 });
