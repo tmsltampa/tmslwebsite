@@ -382,16 +382,10 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
           <h3>Handala United</h3>
         </div>
       </button>
-      <button type="button" class="shop-card" data-name="Hidden Olive FC &mdash; Home" data-img="assets/logos/Hidden Olive FC.png">
-        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC &mdash; Home logo"></div>
+      <button type="button" class="shop-card" data-name="Hidden Olive FC" data-img="assets/logos/Hidden Olive FC.png" data-kit="true">
+        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC logo"></div>
         <div class="shop-body">
-          <h3>Hidden Olive FC &mdash; Home</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Hidden Olive FC &mdash; Away" data-img="assets/logos/Hidden Olive FC.png">
-        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC &mdash; Away logo"></div>
-        <div class="shop-body">
-          <h3>Hidden Olive FC &mdash; Away</h3>
+          <h3>Hidden Olive FC</h3>
         </div>
       </button>
       <button type="button" class="shop-card" data-name="Hilal Al Quds" data-img="assets/logos/Hilal Al Quds.png">
@@ -461,6 +455,15 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
             <option>Shabab FC</option>
             <option>Straw Hats FC</option>
           </select>
+        </div>
+        <div class="shop-field" id="modalKitField" style="display:none;">
+          <label>Kit</label>
+          <div class="size-toggle">
+            <input type="radio" name="modal-kit" id="modal-kit-home" checked>
+            <label for="modal-kit-home">Home</label>
+            <input type="radio" name="modal-kit" id="modal-kit-away">
+            <label for="modal-kit-away">Away</label>
+          </div>
         </div>
         <div class="shop-row">
           <div class="shop-field">
@@ -559,6 +562,8 @@ var modalImg = document.getElementById('modalImg');
 var modalTitle = document.getElementById('modalTitle');
 var modalTeamField = document.getElementById('modalTeamField');
 var modalTeam = document.getElementById('modalTeam');
+var modalKitField = document.getElementById('modalKitField');
+var modalKitHome = document.getElementById('modal-kit-home');
 var modalSize = document.getElementById('modalSize');
 var modalNumber = document.getElementById('modalNumber');
 var modalFitAdult = document.getElementById('modal-fit-adult');
@@ -577,6 +582,8 @@ function openShopModal(card){
   modalImg.innerHTML = isGk ? GK_SVG : '<img src="'+card.dataset.img+'" alt="'+card.dataset.name+' logo">';
   modalTeamField.style.display = isGk ? 'block' : 'none';
   modalTeam.value = '';
+  modalKitField.style.display = card.hasAttribute('data-kit') ? 'block' : 'none';
+  modalKitHome.checked = true;
   modalFitAdult.checked = true;
   renderModalSizes();
   modalNumber.value = '';
