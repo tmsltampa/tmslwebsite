@@ -516,7 +516,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 </div>
 <a href="contact.html">Contact</a>
     </div>
-    <a href="register.html" class="nav-cta">Register</a>
     <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -524,7 +523,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 <a href="schedule.html">Schedule</a>
 <a href="standings.html">Standings</a>
 <a href="rosters.html">Rosters</a>
-<a href="register.html">Registration</a>
 <a href="shop.html">Shop</a>
 <div class="mobile-menu-label">League</div>
 <a href="rules.html">Rules</a>
@@ -611,7 +609,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
       </div>
       <div class="footer-col">
         <h4>Get Involved</h4>
-        <a href="register.html">Register</a>
         <a href="sponsors.html">Become a Sponsor</a>
         <a href="contact.html">Volunteer</a>
       </div>
@@ -710,17 +707,17 @@ function showTab(tab){
     });
   }
   const FALLBACK_STANDINGS = [
-    {team:"Fursan FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Golden Phoenix", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Al-Ittihad", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Straw Hats FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Hilal Al-Quds", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Handala United", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Fursan FC", gp:1, w:1, d:0, l:0, gf:5, ga:2, pts:3},
+    {team:"Golden Phoenix", gp:1, w:0, d:0, l:1, gf:0, ga:3, pts:0},
+    {team:"Al-Ittihad", gp:1, w:1, d:0, l:0, gf:3, ga:0, pts:3},
+    {team:"Straw Hats FC", gp:1, w:1, d:0, l:0, gf:3, ga:0, pts:3},
+    {team:"Hilal Al-Quds", gp:1, w:1, d:0, l:0, gf:8, ga:0, pts:3},
+    {team:"Handala United", gp:1, w:0, d:0, l:1, gf:0, ga:3, pts:0},
     {team:"Blue Lock FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Al Muluk FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Shabab FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Osoud Kanaan", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
-    {team:"Hidden Olive FC", gp:0, w:0, d:0, l:0, gf:0, ga:0, pts:0},
+    {team:"Al Muluk FC", gp:1, w:0, d:1, l:0, gf:0, ga:0, pts:1},
+    {team:"Shabab FC", gp:1, w:0, d:1, l:0, gf:0, ga:0, pts:1},
+    {team:"Osoud Kanaan", gp:1, w:0, d:0, l:1, gf:0, ga:8, pts:0},
+    {team:"Hidden Olive FC", gp:1, w:0, d:0, l:1, gf:2, ga:5, pts:0},
   ];
   /* Jersey color per team, keyed by team name so it stays fixed
      regardless of standings order (works for both the fallback
@@ -795,7 +792,21 @@ function showTab(tab){
       })
       .catch(()=> renderStandings(FALLBACK_STANDINGS));
   }
-  const FALLBACK_STATS = [];
+  const FALLBACK_STATS = [
+    {category:"Scorer", name:"Ali Aboud", team:"Hilal Al-Quds", value:"4"},
+    {category:"Scorer", name:"Badr Eddine Kimakh", team:"Hilal Al-Quds", value:"3"},
+    {category:"Scorer", name:"Heemo Rifaie", team:"Fursan FC", value:"3"},
+    {category:"Scorer", name:"Zade Hawamdeh", team:"Hilal Al-Quds", value:"1"},
+    {category:"Scorer", name:"Ahmad Hijaz", team:"Fursan FC", value:"1"},
+    {category:"Scorer", name:"Yazid Ismail", team:"Fursan FC", value:"1"},
+    {category:"Scorer", name:"Sami Taha", team:"Hidden Olive FC", value:"1"},
+    {category:"Scorer", name:"Basim Saed", team:"Hidden Olive FC", value:"1"},
+    {category:"Scorer", name:"Jassim Hamdan", team:"Straw Hats FC", value:"1"},
+    {category:"Scorer", name:"Ahmad Chehab", team:"Straw Hats FC", value:"1"},
+    {category:"Scorer", name:"Majde Bahloul", team:"Al-Ittihad", value:"1"},
+    {category:"Scorer", name:"Khalid Ali", team:"Al-Ittihad", value:"1"},
+    {category:"Scorer", name:"Abdulaleem Aidoo", team:"Al-Ittihad", value:"1"},
+  ];
   function renderStats(rows){
     const scorers = rows.filter(r => (r.category||'').toLowerCase() === 'scorer');
     scorers.sort((a,b)=> (parseInt(b.value)||0) - (parseInt(a.value)||0));
