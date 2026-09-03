@@ -121,6 +121,7 @@ img{display:block;max-width:100%;}
   font-size:12px;letter-spacing:0.2em;color:var(--gold-light);font-weight:600;text-transform:uppercase;margin-bottom:10px;display:block;
 }
 .sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:600;}
+.sec-link{font-family:'Oswald';font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-light);border-bottom:1px solid var(--gold-light);padding-bottom:3px;white-space:nowrap;}
 /* ===== FOOTER ===== */
 footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0 28px;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
@@ -172,83 +173,43 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
 .shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
 .shop-banner p strong{color:var(--cream);}
-.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-.shop-card{
-  background:var(--night-2);display:flex;flex-direction:column;min-width:0;
-  border:none;margin:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;
-  transition:background .15s;
+/* JERSEY CAROUSEL */
+.jersey-carousel-wrap{position:relative;padding:0 8px;}
+.jersey-carousel{
+  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 4px 16px;scrollbar-width:none;
 }
-.shop-card:hover{background:#222;}
-.shop-img{
-  height:120px;background:var(--pitch);
-  display:flex;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--line);padding:16px;
+.jersey-carousel::-webkit-scrollbar{display:none;}
+.jersey-slide{
+  flex:0 0 auto;width:220px;scroll-snap-align:start;
+  background:var(--night-2);border:1px solid var(--line);border-radius:4px;overflow:hidden;
 }
-.shop-img img{width:auto;height:100%;max-width:70%;object-fit:contain;}
-.shop-img svg{width:46px;height:46px;opacity:0.3;}
-.shop-body{padding:16px;display:flex;flex-direction:column;flex:1;min-width:0;}
-.shop-card h3{font-size:15px;font-weight:600;}
-.shop-card .price{
-  font-family:'Oswald';font-size:13px;letter-spacing:0.04em;color:var(--gold-light);margin-top:6px;
+.jersey-slide-img{
+  height:180px;background:var(--pitch);display:flex;align-items:center;justify-content:center;
+  border-bottom:1px solid var(--line);padding:20px;
 }
+.jersey-slide-img img{width:auto;height:100%;max-width:70%;object-fit:contain;}
+.jersey-slide-img svg{width:56px;height:56px;opacity:0.3;}
+.jersey-slide h3{padding:14px 16px;font-size:14px;font-weight:600;text-align:center;}
+.carousel-arrow{
+  position:absolute;top:90px;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;
+  background:var(--night-2);border:1px solid var(--line);color:var(--cream);font-size:20px;cursor:pointer;
+  z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.carousel-arrow:hover{border-color:var(--gold);color:var(--gold-light);}
+.carousel-arrow.prev{left:-12px;}
+.carousel-arrow.next{right:-12px;}
 @media (max-width:900px){
-  .shop-grid{grid-template-columns:repeat(3,1fr) !important;}
+  .jersey-slide{width:190px;}
+  .jersey-slide-img{height:150px;}
 }
 @media (max-width:560px){
-  .shop-grid{grid-template-columns:repeat(2,1fr) !important;}
-  .shop-img{height:96px;padding:12px;}
-  .shop-body{padding:12px;}
+  .carousel-arrow{display:none;}
+  .jersey-carousel-wrap{padding:0;}
+  .jersey-slide{width:170px;}
+  .jersey-slide-img{height:130px;padding:14px;}
 }
-/* SHOP MODAL */
-.shop-modal{
-  display:none;position:fixed;inset:0;z-index:2000;
-  align-items:center;justify-content:center;padding:24px;
-}
-.shop-modal.open{display:flex;}
-.shop-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.72);}
-.shop-modal-panel{
-  position:relative;background:var(--night-2);border:1px solid var(--line);border-radius:6px;
-  width:100%;max-width:420px;max-height:90vh;overflow-y:auto;
-}
-.shop-modal-close{
-  position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.4);border:none;color:var(--cream);
-  font-size:22px;line-height:1;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:1;
-}
-.shop-modal-close:hover{background:rgba(0,0,0,0.6);}
-.shop-modal-img{
-  height:180px;background:var(--pitch);display:flex;align-items:center;justify-content:center;
-  padding:24px;border-bottom:1px solid var(--line);
-}
-.shop-modal-img img{width:auto;height:100%;max-width:55%;object-fit:contain;}
-.shop-modal-img svg{width:64px;height:64px;opacity:0.3;}
-.shop-modal-body{padding:28px;}
-.shop-modal-body h3{font-size:20px;font-weight:600;}
-.shop-modal-body .price{
-  font-family:'Oswald';font-size:14px;letter-spacing:0.04em;color:var(--gold-light);margin-top:6px;
-}
-.shop-opts{margin-top:22px;display:flex;flex-direction:column;gap:16px;}
-.shop-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0;}
-.shop-row .shop-field{min-width:0;}
-.shop-field label{display:block;font-family:'Oswald';font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);margin-bottom:6px;}
-.shop-field select, .shop-field input{
-  width:100%;max-width:100%;background:var(--night);border:1px solid var(--line);color:var(--cream);
-  padding:10px 11px;border-radius:3px;font-family:'Inter';font-size:14px;
-}
-.shop-field select:focus, .shop-field input:focus{outline:none;border-color:var(--gold);}
-.size-toggle{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;}
-.size-toggle label{
-  flex:1;text-align:center;padding:10px 0;font-family:'Oswald';font-size:11px;letter-spacing:0.03em;
-  text-transform:uppercase;color:var(--slate);cursor:pointer;transition:all .2s;
-}
-.size-toggle label:first-child{border-right:1px solid var(--line);}
-.size-toggle input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-.size-toggle input:checked + label{background:var(--gold);color:var(--night);}
-.shop-btn{
-  margin-top:20px;display:block;width:100%;text-align:center;padding:13px 0;border-radius:3px;
-  font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
-  background:rgba(255,255,255,0.06);color:var(--slate);border:1px solid var(--line);
-  cursor:not-allowed;
-}
+.form-wrap{background:var(--night-2);border:1px solid var(--line);border-radius:6px;}
 /* Mobile menu fullscreen override — belt and suspenders */
 @media (max-width:900px){
   #mobileMenu {
@@ -331,162 +292,57 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   <div class="page-hero-inner">
     <span class="breadcrumb">League / Shop</span>
     <h1>TMSL Gear</h1>
-    <p>Official jerseys and merch from Tampa Muslim Soccer League. Checkout is being set up &mdash; browse what's coming.</p>
+    <p>Official jerseys from Tampa Muslim Soccer League. Preview your team's design below, then order through our secure form.</p>
   </div>
 </section>
 <section class="sec">
   <div class="container">
     <div class="shop-banner">
       <span class="dot"></span>
-      <p><strong>Store coming soon.</strong> Secure checkout is being set up &mdash; jersey designs and pricing will be posted here shortly. Tap a jersey to preview fit, size, and number options.</p>
+      <p><strong>Jersey ordering is open.</strong> Browse the designs below, then submit your info and check out securely via Stripe.</p>
     </div>
     <div class="sec-head">
-      <div><span class="sec-eyebrow">Merch</span><h2>Jerseys</h2></div>
+      <div><span class="sec-eyebrow">Merch</span><h2>Jersey Designs</h2></div>
+      <a href="#order" class="sec-link">Order a Jersey &darr;</a>
     </div>
-    <div class="shop-grid">
-      <button type="button" class="shop-card" data-name="Al Muluk FC" data-img="assets/logos/Al Muluk FC.png">
-        <div class="shop-img"><img src="assets/logos/Al Muluk FC.png" alt="Al Muluk FC logo"></div>
-        <div class="shop-body">
-          <h3>Al Muluk FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Al-Ittihad" data-img="assets/logos/Al-Ittihad.png">
-        <div class="shop-img"><img src="assets/logos/Al-Ittihad.png" alt="Al-Ittihad logo"></div>
-        <div class="shop-body">
-          <h3>Al-Ittihad</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Blue Lock FC" data-img="assets/logos/Blue Lock FC.png">
-        <div class="shop-img"><img src="assets/logos/Blue Lock FC.png" alt="Blue Lock FC logo"></div>
-        <div class="shop-body">
-          <h3>Blue Lock FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Fursan FC" data-img="assets/logos/Fursan FC.png">
-        <div class="shop-img"><img src="assets/logos/Fursan FC.png" alt="Fursan FC logo"></div>
-        <div class="shop-body">
-          <h3>Fursan FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Golden Phoenix" data-img="assets/logos/Golden Phoenix.png">
-        <div class="shop-img"><img src="assets/logos/Golden Phoenix.png" alt="Golden Phoenix logo"></div>
-        <div class="shop-body">
-          <h3>Golden Phoenix</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Handala United" data-img="assets/logos/Handala United.png">
-        <div class="shop-img"><img src="assets/logos/Handala United.png" alt="Handala United logo"></div>
-        <div class="shop-body">
-          <h3>Handala United</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Hidden Olive FC" data-img="assets/logos/Hidden Olive FC.png" data-kit="true">
-        <div class="shop-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC logo"></div>
-        <div class="shop-body">
-          <h3>Hidden Olive FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Hilal Al Quds" data-img="assets/logos/Hilal Al Quds.png">
-        <div class="shop-img"><img src="assets/logos/Hilal Al Quds.png" alt="Hilal Al Quds logo"></div>
-        <div class="shop-body">
-          <h3>Hilal Al Quds</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Osoud Kanaan" data-img="assets/logos/Osoud Kanaan.png">
-        <div class="shop-img"><img src="assets/logos/Osoud Kanaan.png" alt="Osoud Kanaan logo"></div>
-        <div class="shop-body">
-          <h3>Osoud Kanaan</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Shabab FC" data-img="assets/logos/Shabab FC.png">
-        <div class="shop-img"><img src="assets/logos/Shabab FC.png" alt="Shabab FC logo"></div>
-        <div class="shop-body">
-          <h3>Shabab FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Straw Hats FC" data-img="assets/logos/Straw Hats FC.png">
-        <div class="shop-img"><img src="assets/logos/Straw Hats FC.png" alt="Straw Hats FC logo"></div>
-        <div class="shop-body">
-          <h3>Straw Hats FC</h3>
-        </div>
-      </button>
-      <button type="button" class="shop-card" data-name="Goalkeeper Jersey" data-gk="true">
-        <div class="shop-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 5.5c-.5-.5-1.2-.7-2-.5l-2 .5c-.3-1.5-1.5-2.5-3-2.5h-2c-1.5 0-2.7 1-3 2.5l-2-.5c-.8-.2-1.5 0-2 .5-.5.5-.7 1.3-.5 2l1 4c.2.8 1 1.5 1.9 1.5H8v9h8v-9h1.1c.9 0 1.7-.7 1.9-1.5l1-4c.2-.7 0-1.5-.5-2zM11 6c0-.5.4-1 1-1s1 .5 1 1-.4 1-1 1-1-.5-1-1z"/></svg></div>
-        <div class="shop-body">
-          <h3>Goalkeeper Jersey</h3>
-        </div>
-      </button>
-    </div>
-  </div>
-</section>
-<section class="sec" style="background:var(--night-2);">
-  <div class="container" style="max-width:780px;text-align:center;">
-    <span class="sec-eyebrow">Stay Updated</span>
-    <h2 style="margin-bottom:18px;">Want To Know When It Launches?</h2>
-    <p style="color:var(--slate);font-size:16px;line-height:1.8;">Follow TMSL on Instagram or reach out through the contact page and we'll let you know as soon as jersey sales go live.</p>
-    <a href="contact.html" class="nav-cta" style="display:inline-block;margin-top:28px;padding:14px 30px;">Get In Touch</a>
-  </div>
-</section>
-
-<div class="shop-modal" id="shopModal">
-  <div class="shop-modal-backdrop" id="shopModalBackdrop"></div>
-  <div class="shop-modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button type="button" class="shop-modal-close" id="shopModalClose" aria-label="Close">&times;</button>
-    <div class="shop-modal-img" id="modalImg"></div>
-    <div class="shop-modal-body">
-      <h3 id="modalTitle">&nbsp;</h3>
-      <div class="price">Price TBA</div>
-      <div class="shop-opts">
-        <div class="shop-field" id="modalTeamField" style="display:none;">
-          <label for="modalTeam">Team</label>
-          <select id="modalTeam">
-            <option value="">Select team&hellip;</option>
-            <option>Al Muluk FC</option>
-            <option>Al-Ittihad</option>
-            <option>Blue Lock FC</option>
-            <option>Fursan FC</option>
-            <option>Golden Phoenix</option>
-            <option>Handala United</option>
-            <option>Hidden Olive FC</option>
-            <option>Hilal Al Quds</option>
-            <option>Osoud Kanaan</option>
-            <option>Shabab FC</option>
-            <option>Straw Hats FC</option>
-          </select>
-        </div>
-        <div class="shop-field" id="modalKitField" style="display:none;">
-          <label>Kit</label>
-          <div class="size-toggle">
-            <input type="radio" name="modal-kit" id="modal-kit-home" checked>
-            <label for="modal-kit-home">Home</label>
-            <input type="radio" name="modal-kit" id="modal-kit-away">
-            <label for="modal-kit-away">Away</label>
-          </div>
-        </div>
-        <div class="shop-row">
-          <div class="shop-field">
-            <label>Fit</label>
-            <div class="size-toggle">
-              <input type="radio" name="modal-fit" id="modal-fit-adult" checked>
-              <label for="modal-fit-adult">Adult</label>
-              <input type="radio" name="modal-fit" id="modal-fit-kids">
-              <label for="modal-fit-kids">Kids</label>
-            </div>
-          </div>
-          <div class="shop-field">
-            <label for="modalSize">Size</label>
-            <select id="modalSize" class="size-select" data-adult="S,M,L,XL,2X,3X,4X" data-kids="S,M,L"></select>
-          </div>
-        </div>
-        <div class="shop-field">
-          <label for="modalNumber">Jersey Number</label>
-          <input type="number" id="modalNumber" min="0" max="99" placeholder="0&ndash;99">
-        </div>
+    <div class="jersey-carousel-wrap">
+      <button type="button" class="carousel-arrow prev" id="carouselPrev" aria-label="Previous">&lsaquo;</button>
+      <div class="jersey-carousel" id="jerseyCarousel">
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Al Muluk FC.png" alt="Al Muluk FC jersey"></div><h3>Al Muluk FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Al-Ittihad.png" alt="Al-Ittihad jersey"></div><h3>Al-Ittihad</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Blue Lock FC.png" alt="Blue Lock FC jersey"></div><h3>Blue Lock FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Fursan FC.png" alt="Fursan FC jersey"></div><h3>Fursan FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Golden Phoenix.png" alt="Golden Phoenix jersey"></div><h3>Golden Phoenix</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Handala United.png" alt="Handala United jersey"></div><h3>Handala United</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC jersey"></div><h3>Hidden Olive FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Hilal Al Quds.png" alt="Hilal Al Quds jersey"></div><h3>Hilal Al Quds</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Osoud Kanaan.png" alt="Osoud Kanaan jersey"></div><h3>Osoud Kanaan</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Shabab FC.png" alt="Shabab FC jersey"></div><h3>Shabab FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Straw Hats FC.png" alt="Straw Hats FC jersey"></div><h3>Straw Hats FC</h3></div>
+        <div class="jersey-slide"><div class="jersey-slide-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 5.5c-.5-.5-1.2-.7-2-.5l-2 .5c-.3-1.5-1.5-2.5-3-2.5h-2c-1.5 0-2.7 1-3 2.5l-2-.5c-.8-.2-1.5 0-2 .5-.5.5-.7 1.3-.5 2l1 4c.2.8 1 1.5 1.9 1.5H8v9h8v-9h1.1c.9 0 1.7-.7 1.9-1.5l1-4c.2-.7 0-1.5-.5-2zM11 6c0-.5.4-1 1-1s1 .5 1 1-.4 1-1 1-1-.5-1-1z"/></svg></div><h3>Goalkeeper Jersey</h3></div>
       </div>
-      <span class="shop-btn">Coming Soon</span>
+      <button type="button" class="carousel-arrow next" id="carouselNext" aria-label="Next">&rsaquo;</button>
     </div>
   </div>
-</div>
+</section>
+<section class="sec" id="order" style="background:var(--night-2);scroll-margin-top:100px;">
+  <div class="container" style="max-width:760px;">
+    <div class="sec-head">
+      <div><span class="sec-eyebrow">Checkout</span><h2>Order Your Jersey</h2></div>
+    </div>
+    <div class="form-wrap" style="padding:0;overflow:hidden;">
+      <iframe
+        src="https://v1ddzei4fp.zite.so/"
+        title="TMSL Jersey Order Form"
+        style="width:100%;min-height:900px;border:0;display:block;background:#F2EFE6;"
+        loading="lazy">
+      </iframe>
+    </div>
+    <p style="color:var(--slate);font-size:14px;margin-top:16px;text-align:center;">
+      Form not loading? <a href="https://v1ddzei4fp.zite.so/" target="_blank" rel="noopener" style="color:var(--gold-light);">Open the order form in a new tab</a>.
+    </p>
+  </div>
+</section>
 
 <footer>
   <div class="container">
@@ -552,53 +408,14 @@ document.querySelectorAll('.mobile-menu a').forEach(a=>{
   a.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.remove('open'));
 });
 
-var GK_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 5.5c-.5-.5-1.2-.7-2-.5l-2 .5c-.3-1.5-1.5-2.5-3-2.5h-2c-1.5 0-2.7 1-3 2.5l-2-.5c-.8-.2-1.5 0-2 .5-.5.5-.7 1.3-.5 2l1 4c.2.8 1 1.5 1.9 1.5H8v9h8v-9h1.1c.9 0 1.7-.7 1.9-1.5l1-4c.2-.7 0-1.5-.5-2zM11 6c0-.5.4-1 1-1s1 .5 1 1-.4 1-1 1-1-.5-1-1z"/></svg>';
-
-var shopModal = document.getElementById('shopModal');
-var modalImg = document.getElementById('modalImg');
-var modalTitle = document.getElementById('modalTitle');
-var modalTeamField = document.getElementById('modalTeamField');
-var modalTeam = document.getElementById('modalTeam');
-var modalKitField = document.getElementById('modalKitField');
-var modalKitHome = document.getElementById('modal-kit-home');
-var modalSize = document.getElementById('modalSize');
-var modalNumber = document.getElementById('modalNumber');
-var modalFitAdult = document.getElementById('modal-fit-adult');
-var modalFitKids = document.getElementById('modal-fit-kids');
-
-function renderModalSizes(){
-  var list = (modalFitKids.checked ? modalSize.dataset.kids : modalSize.dataset.adult).split(',');
-  modalSize.innerHTML = list.map(function(s){ return '<option value="'+s+'">'+s+'</option>'; }).join('');
+var jerseyCarousel = document.getElementById('jerseyCarousel');
+function scrollCarousel(dir){
+  var slide = jerseyCarousel.querySelector('.jersey-slide');
+  var step = slide ? slide.offsetWidth + 16 : 220;
+  jerseyCarousel.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
 }
-modalFitAdult.addEventListener('change', renderModalSizes);
-modalFitKids.addEventListener('change', renderModalSizes);
-
-function openShopModal(card){
-  var isGk = card.hasAttribute('data-gk');
-  modalTitle.textContent = card.dataset.name;
-  modalImg.innerHTML = isGk ? GK_SVG : '<img src="'+card.dataset.img+'" alt="'+card.dataset.name+' logo">';
-  modalTeamField.style.display = isGk ? 'block' : 'none';
-  modalTeam.value = '';
-  modalKitField.style.display = card.hasAttribute('data-kit') ? 'block' : 'none';
-  modalKitHome.checked = true;
-  modalFitAdult.checked = true;
-  renderModalSizes();
-  modalNumber.value = '';
-  shopModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeShopModal(){
-  shopModal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.querySelectorAll('.shop-card').forEach(function(card){
-  card.addEventListener('click', function(){ openShopModal(card); });
-});
-document.getElementById('shopModalClose').addEventListener('click', closeShopModal);
-document.getElementById('shopModalBackdrop').addEventListener('click', closeShopModal);
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeShopModal();
-});
+document.getElementById('carouselPrev').addEventListener('click', function(){ scrollCarousel(-1); });
+document.getElementById('carouselNext').addEventListener('click', function(){ scrollCarousel(1); });
 </script>
 
 </body>
