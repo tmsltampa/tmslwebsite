@@ -121,7 +121,6 @@ img{display:block;max-width:100%;}
   font-size:12px;letter-spacing:0.2em;color:var(--gold-light);font-weight:600;text-transform:uppercase;margin-bottom:10px;display:block;
 }
 .sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:600;}
-.sec-link{font-family:'Oswald';font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-light);border-bottom:1px solid var(--gold-light);padding-bottom:3px;white-space:nowrap;}
 /* ===== FOOTER ===== */
 footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0 28px;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
@@ -173,42 +172,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
 .shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
 .shop-banner p strong{color:var(--cream);}
-/* JERSEY CAROUSEL */
-.jersey-carousel-wrap{position:relative;padding:0 8px;}
-.jersey-carousel{
-  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:4px 4px 16px;scrollbar-width:none;
-}
-.jersey-carousel::-webkit-scrollbar{display:none;}
-.jersey-slide{
-  flex:0 0 auto;width:220px;scroll-snap-align:start;
-  background:var(--night-2);border:1px solid var(--line);border-radius:4px;overflow:hidden;
-}
-.jersey-slide-img{
-  height:180px;background:var(--pitch);display:flex;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--line);padding:20px;
-}
-.jersey-slide-img img{width:auto;height:100%;max-width:70%;object-fit:contain;}
-.jersey-slide-img svg{width:56px;height:56px;opacity:0.3;}
-.jersey-slide h3{padding:14px 16px;font-size:14px;font-weight:600;text-align:center;}
-.carousel-arrow{
-  position:absolute;top:90px;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;
-  background:var(--night-2);border:1px solid var(--line);color:var(--cream);font-size:20px;cursor:pointer;
-  z-index:2;display:flex;align-items:center;justify-content:center;transition:all .2s;
-}
-.carousel-arrow:hover{border-color:var(--gold);color:var(--gold-light);}
-.carousel-arrow.prev{left:-12px;}
-.carousel-arrow.next{right:-12px;}
-@media (max-width:900px){
-  .jersey-slide{width:190px;}
-  .jersey-slide-img{height:150px;}
-}
-@media (max-width:560px){
-  .carousel-arrow{display:none;}
-  .jersey-carousel-wrap{padding:0;}
-  .jersey-slide{width:170px;}
-  .jersey-slide-img{height:130px;padding:14px;}
-}
 .form-wrap{background:var(--night-2);border:1px solid var(--line);border-radius:6px;}
 /* Mobile menu fullscreen override — belt and suspenders */
 @media (max-width:900px){
@@ -292,49 +255,23 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
   <div class="page-hero-inner">
     <span class="breadcrumb">League / Shop</span>
     <h1>TMSL Gear</h1>
-    <p>Official jerseys from Tampa Muslim Soccer League. Preview your team's design below, then order through our secure form.</p>
+    <p>Official jerseys from Tampa Muslim Soccer League. Submit your info below and check out securely via Stripe.</p>
   </div>
 </section>
-<section class="sec">
+<section class="sec" id="order">
   <div class="container">
     <div class="shop-banner">
       <span class="dot"></span>
-      <p><strong>Jersey ordering is open.</strong> Browse the designs below, then submit your info and check out securely via Stripe.</p>
+      <p><strong>Jersey ordering is open.</strong> Browse designs and submit your info below to check out securely via Stripe.</p>
     </div>
     <div class="sec-head">
-      <div><span class="sec-eyebrow">Merch</span><h2>Jersey Designs</h2></div>
-      <a href="#order" class="sec-link">Order a Jersey &darr;</a>
+      <div><span class="sec-eyebrow">Merch</span><h2>Order Your Jersey</h2></div>
     </div>
-    <div class="jersey-carousel-wrap">
-      <button type="button" class="carousel-arrow prev" id="carouselPrev" aria-label="Previous">&lsaquo;</button>
-      <div class="jersey-carousel" id="jerseyCarousel">
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Al Muluk FC.png" alt="Al Muluk FC jersey"></div><h3>Al Muluk FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Al-Ittihad.png" alt="Al-Ittihad jersey"></div><h3>Al-Ittihad</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Blue Lock FC.png" alt="Blue Lock FC jersey"></div><h3>Blue Lock FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Fursan FC.png" alt="Fursan FC jersey"></div><h3>Fursan FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Golden Phoenix.png" alt="Golden Phoenix jersey"></div><h3>Golden Phoenix</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Handala United.png" alt="Handala United jersey"></div><h3>Handala United</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Hidden Olive FC.png" alt="Hidden Olive FC jersey"></div><h3>Hidden Olive FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Hilal Al Quds.png" alt="Hilal Al Quds jersey"></div><h3>Hilal Al Quds</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Osoud Kanaan.png" alt="Osoud Kanaan jersey"></div><h3>Osoud Kanaan</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Shabab FC.png" alt="Shabab FC jersey"></div><h3>Shabab FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><img src="assets/logos/Straw Hats FC.png" alt="Straw Hats FC jersey"></div><h3>Straw Hats FC</h3></div>
-        <div class="jersey-slide"><div class="jersey-slide-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 5.5c-.5-.5-1.2-.7-2-.5l-2 .5c-.3-1.5-1.5-2.5-3-2.5h-2c-1.5 0-2.7 1-3 2.5l-2-.5c-.8-.2-1.5 0-2 .5-.5.5-.7 1.3-.5 2l1 4c.2.8 1 1.5 1.9 1.5H8v9h8v-9h1.1c.9 0 1.7-.7 1.9-1.5l1-4c.2-.7 0-1.5-.5-2zM11 6c0-.5.4-1 1-1s1 .5 1 1-.4 1-1 1-1-.5-1-1z"/></svg></div><h3>Goalkeeper Jersey</h3></div>
-      </div>
-      <button type="button" class="carousel-arrow next" id="carouselNext" aria-label="Next">&rsaquo;</button>
-    </div>
-  </div>
-</section>
-<section class="sec" id="order" style="background:var(--night-2);scroll-margin-top:100px;">
-  <div class="container" style="max-width:760px;">
-    <div class="sec-head">
-      <div><span class="sec-eyebrow">Checkout</span><h2>Order Your Jersey</h2></div>
-    </div>
-    <div class="form-wrap" style="padding:0;overflow:hidden;">
+    <div class="form-wrap" style="padding:0;overflow:hidden;max-width:960px;margin:0 auto;">
       <iframe
         src="https://v1ddzei4fp.zite.so/"
         title="TMSL Jersey Order Form"
-        style="width:100%;min-height:1500px;border:0;display:block;background:#F2EFE6;"
+        style="width:100%;min-height:1000px;border:0;display:block;background:#F2EFE6;"
         loading="lazy">
       </iframe>
     </div>
@@ -408,14 +345,6 @@ document.querySelectorAll('.mobile-menu a').forEach(a=>{
   a.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.remove('open'));
 });
 
-var jerseyCarousel = document.getElementById('jerseyCarousel');
-function scrollCarousel(dir){
-  var slide = jerseyCarousel.querySelector('.jersey-slide');
-  var step = slide ? slide.offsetWidth + 16 : 220;
-  jerseyCarousel.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
-}
-document.getElementById('carouselPrev').addEventListener('click', function(){ scrollCarousel(-1); });
-document.getElementById('carouselNext').addEventListener('click', function(){ scrollCarousel(1); });
 </script>
 
 </body>
