@@ -173,6 +173,10 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
 .shop-banner p strong{color:var(--cream);}
 .form-wrap{background:var(--night-2);border:1px solid var(--line);border-radius:6px;}
+.order-iframe{width:100%;min-height:1600px;border:0;display:block;background:#F2EFE6;}
+@media (min-width:900px){
+  .order-iframe{min-height:850px;}
+}
 /* Mobile menu fullscreen override — belt and suspenders */
 @media (max-width:900px){
   #mobileMenu {
@@ -271,7 +275,7 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
       <iframe
         src="https://v1ddzei4fp.zite.so/"
         title="TMSL Jersey Order Form"
-        style="width:100%;min-height:1000px;border:0;display:block;background:#F2EFE6;"
+        class="order-iframe"
         loading="lazy">
       </iframe>
     </div>
