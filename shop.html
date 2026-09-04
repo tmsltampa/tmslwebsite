@@ -113,14 +113,6 @@ img{display:block;max-width:100%;}
 }
 /* ===== SECTION HEADER PATTERN ===== */
 .sec{padding:90px 0;}
-.sec-head{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  margin-bottom:48px;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--line);padding-bottom:24px;
-}
-.sec-eyebrow{
-  font-size:12px;letter-spacing:0.2em;color:var(--gold-light);font-weight:600;text-transform:uppercase;margin-bottom:10px;display:block;
-}
-.sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:600;}
 /* ===== FOOTER ===== */
 footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0 28px;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
@@ -163,15 +155,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .page-hero p{color:var(--slate);font-size:17px;margin-top:14px;max-width:520px;}
 .breadcrumb{font-size:12px;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase;margin-bottom:18px;}
 /* SHOP */
-.shop-banner{
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-  background:var(--night-2);border:1px solid var(--line);border-radius:4px;
-  padding:16px 22px;margin-bottom:48px;
-}
-.shop-banner .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 1.8s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
-.shop-banner p{color:var(--slate);font-size:14px;line-height:1.6;}
-.shop-banner p strong{color:var(--cream);}
 .form-wrap{background:var(--night-2);border:1px solid var(--line);border-radius:6px;}
 .order-iframe{width:100%;min-height:1600px;border:0;display:block;background:#F2EFE6;}
 @media (min-width:900px){
@@ -262,15 +245,8 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
     <p>Official jerseys from Tampa Muslim Soccer League. Submit your info below and check out securely via Stripe.</p>
   </div>
 </section>
-<section class="sec" id="order">
+<section class="sec" id="order" style="padding-top:32px;">
   <div class="container">
-    <div class="shop-banner">
-      <span class="dot"></span>
-      <p><strong>Jersey ordering is open.</strong> Browse designs and submit your info below to check out securely via Stripe.</p>
-    </div>
-    <div class="sec-head">
-      <div><span class="sec-eyebrow">Merch</span><h2>Order Your Jersey</h2></div>
-    </div>
     <div class="form-wrap" style="padding:0;overflow:hidden;max-width:960px;margin:0 auto;">
       <iframe
         src="https://v1ddzei4fp.zite.so/"
