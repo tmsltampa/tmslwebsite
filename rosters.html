@@ -151,6 +151,27 @@ img{display:block;max-width:100%;}
   font-family:'Oswald';font-size:11px;color:var(--slate);width:20px;flex-shrink:0;
 }
 @media(max-width:900px){.teams-grid{grid-template-columns:1fr;}}
+/* ===== TABS / EVENTS TABLE ===== */
+.filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;}
+.gfilter{
+  font-family:'Oswald';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:10px 18px;border:1px solid var(--line);border-radius:30px;cursor:pointer;
+  background:none;color:var(--slate);transition:all .2s;font-weight:500;
+}
+.gfilter.active, .gfilter:hover{border-color:var(--gold);color:var(--gold-light);}
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;}
+.standings-table{width:100%;border-collapse:collapse;font-size:14px;}
+.standings-table th{
+  text-align:left;padding:14px 16px;font-family:'Oswald';font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--slate);border-bottom:1px solid var(--line);font-weight:500;
+}
+.standings-table td{padding:16px;border-bottom:1px solid var(--line);color:var(--cream);vertical-align:top;}
+.standings-table tbody tr:hover{background:rgba(255,255,255,0.03);}
+.event-date{font-family:'Oswald';font-size:13px;color:var(--slate);white-space:nowrap;}
+.tag{font-family:'Oswald';font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border-radius:2px;font-weight:600;display:inline-block;white-space:nowrap;}
+.tag-trade{background:rgba(20,145,106,0.15);color:var(--gold-light);}
+.tag-signing{background:rgba(139,146,153,0.15);color:var(--slate);}
+.tag-drop{background:rgba(165,59,59,0.18);color:#d98a8a;}
 /* Mobile menu fullscreen override — belt and suspenders */
 @media (max-width:900px){
   #mobileMenu {
@@ -268,7 +289,23 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 
 <section class="sec">
   <div class="container">
-    <div class="teams-grid" id="teamsGrid"></div>
+    <div class="filter-bar">
+      <button class="gfilter active" id="tabRostersBtn" onclick="showTab('rosters')">Team Rosters</button>
+      <button class="gfilter" id="tabEventsBtn" onclick="showTab('events')">Roster Changes</button>
+    </div>
+    <div id="tabRosters">
+      <div class="teams-grid" id="teamsGrid"></div>
+    </div>
+    <div id="tabEvents" style="display:none;">
+      <div class="tbl-scroll">
+        <table class="standings-table" id="eventsTable">
+          <thead><tr><th>Date</th><th>Type</th><th>Details</th></tr></thead>
+          <tbody id="eventsBody">
+            <tr><td colspan="3" style="text-align:center;color:var(--slate);padding:40px;">Loading&hellip;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -424,6 +461,52 @@ function toggleRoster(idx, btn){
   btn.classList.toggle('open');
 }
 renderRosters();
+
+function showTab(tab){
+  document.getElementById('tabRosters').style.display = tab==='rosters' ? 'block':'none';
+  document.getElementById('tabEvents').style.display = tab==='events' ? 'block':'none';
+  document.getElementById('tabRostersBtn').classList.toggle('active', tab==='rosters');
+  document.getElementById('tabEventsBtn').classList.toggle('active', tab==='events');
+}
+
+/* =========================================================
+   ROSTER CHANGE LOG
+   -----------------------------------------------------------
+   Every trade, signing, and drop since the Season 5 draft.
+   Add new entries to the TOP of this list as moves happen.
+   type: "Trade" | "Signing" | "Drop"
+   ========================================================= */
+const ROSTER_EVENTS = [
+  {date:"2026-09-21", type:"Trade", desc:"Hilal Al-Quds trade Badr Eddine Kimakh to Shabab FC for Amjad Saad."},
+  {date:"2026-09-21", type:"Signing", desc:"Golden Phoenix sign Abdulkudus Farah, replacing Shiar Mohammad."},
+  {date:"2026-09-21", type:"Signing", desc:"Al-Ittihad sign Khalid Sakr, replacing Basim Ismail (dropped due to injury)."},
+  {date:"2026-09-21", type:"Trade", desc:"Golden Phoenix trade Mohammed EL Jeffal to Hidden Olive FC for Youssef Abdelhai."},
+  {date:"2026-09-21", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader."},
+  {date:"2026-09-21", type:"Signing", desc:"Al Muluk FC sign Yousef Khader."},
+  {date:"2026-09-11", type:"Trade", desc:"Osoud Kanaan trade Fadhl Bafadhl and Yassin Khalifa to Hidden Olive FC for Adam Sheikha and Mohammad Sidani."},
+  {date:"2026-08-22", type:"Signing", desc:"Hidden Olive FC sign Ibrahem Hasan, replacing Salem Hemaidan."},
+  {date:"2026-08-22", type:"Signing", desc:"Hidden Olive FC sign Thami Ettouati, replacing Mohamed Zayed."},
+  {date:"2026-08-22", type:"Signing", desc:"Handala United sign Rayane Ritouni as new captain, replacing Omar Jaber."},
+  {date:"2026-08-22", type:"Signing", desc:"Fursan FC sign Mohanad Rifaie (16th roster spot)."},
+  {date:"2026-07-27", type:"Trade", desc:"Al Muluk FC trade Saed Sheikha to Osoud Kanaan for Nader Elwan."},
+  {date:"2026-07-27", type:"Trade", desc:"Golden Phoenix trade Nader Elwan to Osoud Kanaan for Tamim Zahir."},
+  {date:"2026-07-27", type:"Trade", desc:"Handala United trade Jihad Juma to Blue Lock FC for Mohamad H Mustafa."},
+  {date:"2026-07-27", type:"Trade", desc:"Hilal Al-Quds trade Gabriel Hodge and Saed Sheikha to Al Muluk FC for Abdulrahman Chahbandar and Tareq Kadamani."},
+];
+function renderEvents(){
+  const tbody = document.getElementById('eventsBody');
+  const tagClass = {Trade:"tag-trade", Signing:"tag-signing", Drop:"tag-drop"};
+  tbody.innerHTML = ROSTER_EVENTS.map(e => {
+    const d = new Date(e.date + 'T00:00:00');
+    const dateStr = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+    return `<tr>
+      <td class="event-date">${dateStr}</td>
+      <td><span class="tag ${tagClass[e.type] || 'tag-signing'}">${e.type}</span></td>
+      <td>${e.desc}</td>
+    </tr>`;
+  }).join('');
+}
+renderEvents();
 </script>
 </body>
 </html>
