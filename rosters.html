@@ -406,8 +406,8 @@ const ROSTERS = [
     players: ["Dahood Qaisi","Abdelilah Serroukh","Ali Aboud","Anouar Raissi","Amjad Saad","Diaa Shabana","Malik Mansi","Mohamed Saraeb","Mohammad Rifaie","Othman Jabbar","Shihab al-deen Mustafa","Zade Hawamdeh","Abdulrahman Chahbandar","Tareq Kadamani","Muhammad Kamil"]
   },
   {
-    name: "Handala United", captain: "Rayane Ritouni", initials: "HU", color: "#9DA3A8", text: "#121212", logo: "assets/logos/Handala United.png",
-    players: ["Rayane Ritouni","Abdullah Noor","Adam Zendouzi","Ahmad Alwan","Ahmed Abdelhai","Alaa Haddabeh","Ammar Albashir","Fahmi Abraham","Naji Gahaf","Omran Chehab","Osama Alzedan","Rayan Benjelloun","Seif Eldin Tarek Eldamaty","Taha Alazzawi","Mohamad H Mustafa"]
+    name: "Handala United", captain: "Omar Jaber", initials: "HU", color: "#9DA3A8", text: "#121212", logo: "assets/logos/Handala United.png",
+    players: ["Omar Jaber","Rayane Ritouni","Abdullah Noor","Adam Zendouzi","Ahmad Alwan","Ahmed Abdelhai","Alaa Haddabeh","Ammar Albashir","Fahmi Abraham","Naji Gahaf","Omran Chehab","Osama Alzedan","Rayan Benjelloun","Seif Eldin Tarek Eldamaty","Taha Alazzawi","Mohamad H Mustafa"]
   },
   {
     name: "Blue Lock FC", captain: "Khaled Hassan", initials: "BL", color: "#1F3A5F", text: "#FFFFFF", logo: "assets/logos/Blue Lock FC.png",
@@ -415,7 +415,7 @@ const ROSTERS = [
   },
   {
     name: "Al Muluk FC", captain: "Ahmed Simrin", initials: "AM", color: "#7A4B9E", text: "#FFFFFF", logo: "assets/logos/Al Muluk FC.png",
-    players: ["Ahmed Simrin","Ahmed Namrouti","Baraa Elwan","Hamzh Jarrar","Hareth Saleh","Ibrahim Hamdan","Ihab Taha","Mazen AlAsmi","Morad Nafea","Muhtasim Alom","Usama Abel","Yazan Mansour","Sulieman Danon","Gabriel Hodge","Nader Elwan","Yousef Khader"]
+    players: ["Ahmed Simrin","Ahmed Namrouti","Baraa Elwan","Hamzh Jarrar","Hareth Saleh","Ibrahim Hamdan","Mazen AlAsmi","Morad Nafea","Muhtasim Alom","Usama Abel","Yazan Mansour","Sulieman Danon","Gabriel Hodge","Nader Elwan","Yousef Khader"]
   },
   {
     name: "Shabab FC", captain: "Ahmad Haddabeh", initials: "SB", color: "#2FA8A0", text: "#FFFFFF", logo: "assets/logos/Shabab FC.png",
@@ -427,7 +427,7 @@ const ROSTERS = [
   },
   {
     name: "Hidden Olive FC", captain: "Basim Saed", initials: "HO", color: "#6E7B3A", text: "#FFFFFF", logo: "assets/logos/Hidden Olive FC.png",
-    players: ["Basim Saed","Amo Ayman","Anees Saed","Belal Saed","Harith Aldhaferi","Hasan Karoush","Hicham Ben Soussi","Medin Kukuljac","Thami Ettouati","Ibrahem Hasan","Sami Taha","Mohammed EL Jeffal","Zaid Abdallah","Yassin Khalifa","Fadhl Bafadhl"]
+    players: ["Basim Saed","Amo Ayman","Anees Saed","Belal Saed","Harith Aldhaferi","Hasan Karoush","Hicham Ben Soussi","Medin Kukuljac","Thami Ettouati","Ibrahem Hasan","Muhammad Abdulmajid","Sami Taha","Mohammed EL Jeffal","Zaid Abdallah","Yassin Khalifa","Fadhl Bafadhl"]
   }
 ];
 
@@ -479,19 +479,22 @@ function showTab(tab){
 const ROSTER_EVENTS = [
   {date:"2026-09-21", type:"Trade", desc:"Hilal Al-Quds trade Badr Eddine Kimakh to Shabab FC for Amjad Saad."},
   {date:"2026-09-21", type:"Signing", desc:"Golden Phoenix sign Abdulkudus Farah, replacing Shiar Mohammad."},
-  {date:"2026-09-21", type:"Signing", desc:"Al-Ittihad sign Khalid Sakr, replacing Basim Ismail (dropped due to injury)."},
-  {date:"2026-09-21", type:"Trade", desc:"Golden Phoenix trade Mohammed EL Jeffal to Hidden Olive FC for Youssef Abdelhai."},
-  {date:"2026-09-21", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader."},
-  {date:"2026-09-21", type:"Signing", desc:"Al Muluk FC sign Yousef Khader."},
-  {date:"2026-09-11", type:"Trade", desc:"Osoud Kanaan trade Fadhl Bafadhl and Yassin Khalifa to Hidden Olive FC for Adam Sheikha and Mohammad Sidani."},
-  {date:"2026-08-22", type:"Signing", desc:"Hidden Olive FC sign Ibrahem Hasan, replacing Salem Hemaidan."},
+  {date:"2026-09-19", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader."},
+  {date:"2026-09-19", type:"Signing", desc:"Al Muluk FC sign Yousef Khader, replacing Ihab Taha."},
+  {date:"2026-09-18", type:"Trade", desc:"Golden Phoenix trade Mohammed EL Jeffal to Hidden Olive FC for Youssef Abdelhai."},
+  {date:"2026-09-15", type:"Signing", desc:"Al-Ittihad sign Khalid Sakr, replacing Basim Ismail (dropped due to injury)."},
+  {date:"2026-09-04", type:"Drop", desc:"Ihab Taha drops from Al Muluk FC due to injury."},
+  {date:"2026-08-28", type:"Trade", desc:"Osoud Kanaan trade Fadhl Bafadhl and Yassin Khalifa to Hidden Olive FC for Adam Sheikha and Mohammad Sidani."},
+  {date:"2026-08-27", type:"Signing", desc:"Hidden Olive FC sign Muhammad Abdulmajid, replacing Salem Hemaidan (dropped due to injury)."},
+  {date:"2026-08-27", type:"Signing", desc:"Hidden Olive FC sign Ibrahem Hasan (supplemental addition)."},
   {date:"2026-08-22", type:"Signing", desc:"Hidden Olive FC sign Thami Ettouati, replacing Mohamed Zayed."},
-  {date:"2026-08-22", type:"Signing", desc:"Handala United sign Rayane Ritouni as new captain, replacing Omar Jaber."},
   {date:"2026-08-22", type:"Signing", desc:"Fursan FC sign Mohanad Rifaie (16th roster spot)."},
+  {date:"2026-08-21", type:"Signing", desc:"Handala United sign Rayane Ritouni to the active roster; Omar Jaber remains team captain but is sidelined by injury."},
   {date:"2026-07-27", type:"Trade", desc:"Al Muluk FC trade Saed Sheikha to Osoud Kanaan for Nader Elwan."},
   {date:"2026-07-27", type:"Trade", desc:"Golden Phoenix trade Nader Elwan to Osoud Kanaan for Tamim Zahir."},
   {date:"2026-07-27", type:"Trade", desc:"Handala United trade Jihad Juma to Blue Lock FC for Mohamad H Mustafa."},
   {date:"2026-07-27", type:"Trade", desc:"Hilal Al-Quds trade Gabriel Hodge and Saed Sheikha to Al Muluk FC for Abdulrahman Chahbandar and Tareq Kadamani."},
+  {date:"2026-07-26", type:"Trade", desc:"Al Muluk FC trade Yazid Ismail to Fursan FC for Sulieman Danon."},
 ];
 function renderEvents(){
   const tbody = document.getElementById('eventsBody');
