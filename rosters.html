@@ -387,7 +387,7 @@ document.querySelectorAll('.mobile-menu a').forEach(a=>{
 const ROSTERS = [
   {
     name: "Fursan FC", captain: "Thomas Kalach", initials: "FU", color: "#1A1A1A", text: "#FFFFFF", logo: "assets/logos/Fursan FC.png",
-    players: ["Thomas Kalach","Ahmad Aljuboori","Ahmad Hijaz","Azzam Albashir","Eleya Alrefay","Heemo Rifaie","Mahmoud Said","Mohammed Ahmed","Muhammad Ibrahim","Munther Jaber","Rashid Alqawasmi","Samy Rifaie","Yazid Ismail","Yusef Alazhari","Kaled Alghafari","Mohanad Rifaie","Zakaria Abdelqader"]
+    players: ["Thomas Kalach","Ahmad Aljuboori","Ahmad Hijaz","Azzam Albashir","Eleya Alrefay","Heemo Rifaie","Mahmoud Said","Mohammed Ahmed","Muhammad Ibrahim","Munther Jaber","Rashid Alqawasmi","Samy Rifaie","Yazid Ismail","Yusef Alazhari","Farris Kabalaoui","Mohanad Rifaie","Zakaria Abdelqader"]
   },
   {
     name: "Golden Phoenix", captain: "Haitham Salim", initials: "GP", color: "#E85D9E", text: "#121212", logo: "assets/logos/Golden Phoenix.png",
@@ -395,7 +395,7 @@ const ROSTERS = [
   },
   {
     name: "Al-Ittihad", captain: "Shaker Saleh", initials: "AI", color: "#E0C64C", text: "#121212", logo: "assets/logos/Al-Ittihad.png",
-    players: ["Shaker Saleh","Khalid Sakr","Evren Cekin","Iyas Zaben","Kareem Gadelhak","Khalid Ali","Majde Bahloul","Mohammad Said","Othman Chahin","Rami Abdalla","Rami Al-khawaldeh","Saad Hassan","Tajbir Zahir","Abdulaleem Aidoo","Mustafa Osman"]
+    players: ["Shaker Saleh","Khalid Sakr","Mahmoud Jniat","Iyas Zaben","Kareem Gadelhak","Khalid Ali","Majde Bahloul","Mohammad Said","Othman Chahin","Rami Abdalla","Rami Al-khawaldeh","Saad Hassan","Tajbir Zahir","Abdulaleem Aidoo","Mustafa Osman"]
   },
   {
     name: "Straw Hats FC", captain: "Jassim Hamdan", initials: "SH", color: "#C0392B", text: "#FFFFFF", logo: "assets/logos/Straw Hats FC.png",
@@ -419,7 +419,7 @@ const ROSTERS = [
   },
   {
     name: "Shabab FC", captain: "Ahmad Haddabeh", initials: "SB", color: "#2FA8A0", text: "#FFFFFF", logo: "assets/logos/Shabab FC.png",
-    players: ["Ahmad Haddabeh","Abdulhamid Saleh","Abubakar Mujahid","Ameen Abualoff","Amin Ibrahim","Badr Eddine Kimakh","Farris Kabalaoui","Hamza Salim","Hamzah Mubarak","Imran Rahman","Mahmoud Farhoud","Mahmoud Jniat","Obaidah Fariz","Omar Sandouka","Ziyad Al-khawaldeh"]
+    players: ["Ahmad Haddabeh","Abdulhamid Saleh","Abubakar Mujahid","Ameen Abualoff","Amin Ibrahim","Badr Eddine Kimakh","Evren Cekin","Hamza Salim","Hamzah Mubarak","Imran Rahman","Mahmoud Farhoud","Kaled Alghafari","Obaidah Fariz","Omar Sandouka","Ziyad Al-khawaldeh"]
   },
   {
     name: "Osoud Kanaan", captain: "Bilal Hijaz", initials: "OK", color: "#D97A3D", text: "#121212", logo: "assets/logos/Osoud Kanaan.png",
@@ -477,6 +477,8 @@ function showTab(tab){
    type: "Trade" | "Signing" | "Drop"
    ========================================================= */
 const ROSTER_EVENTS = [
+  {date:"2026-09-22", type:"Trade", desc:"Fursan FC trade Kaled Alghafari to Shabab FC for Farris Kabalaoui."},
+  {date:"2026-09-22", type:"Trade", desc:"Al-Ittihad trade Evren Cekin to Shabab FC for Mahmoud Jniat."},
   {date:"2026-09-21", type:"Trade", desc:"Hilal Al-Quds trade Badr Eddine Kimakh to Shabab FC for Amjad Saad."},
   {date:"2026-09-21", type:"Signing", desc:"Golden Phoenix sign Abdulkudus Farah, replacing Shiar Mohammad."},
   {date:"2026-09-19", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader."},
