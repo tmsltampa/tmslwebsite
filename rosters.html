@@ -387,11 +387,11 @@ document.querySelectorAll('.mobile-menu a').forEach(a=>{
 const ROSTERS = [
   {
     name: "Fursan FC", captain: "Thomas Kalach", initials: "FU", color: "#1A1A1A", text: "#FFFFFF", logo: "assets/logos/Fursan FC.png",
-    players: ["Thomas Kalach","Ahmad Aljuboori","Ahmad Hijaz","Azzam Albashir","Eleyas Alrefay","Heemo Rifaie","Mahmoud Said","Mohammed Ahmed","Muhammad Ibrahim","Munther Jaber","Rashid Alqawasmi","Samy Rifaie","Yazid Ismail","Yusef Alazhari","Farris Kabalaoui","Mohanad Rifaie","Zakaria Abdelqader"]
+    players: ["Thomas Kalach","Ahmad Aljuboori","Ahmad Hijaz","Azzam Albashir","Eleyas Alrefay","Heemo Rifaie","Mahmoud Said","Mohammed Ahmed","Muhammad Ibrahim","Munther Jaber","Rashid Alqawasmi","Samy Rifaie","Yazid Ismail","Farris Kabalaoui","Mohanad Rifaie","Zakaria Abdelqader"]
   },
   {
-    name: "Golden Phoenix", captain: "Haitham Salim", initials: "GP", color: "#E85D9E", text: "#121212", logo: "assets/logos/Golden Phoenix.png",
-    players: ["Haitham Salim","Aimal Nikamal","Amjad Alzedan","Baraa Ahmed","Fadi Kayali","Kader Kimouche","Majed Barazenji","Mohammed Aljumai","Youssef Abdelhai","Rafan Syed","Abdulkudus Farah","Yahya Kadur","Yoosuf Chaudhary","Mazen Khaled","Tamim Zahir"]
+    name: "Golden Phoenix", captain: "Amjad Alzedan", initials: "GP", color: "#E85D9E", text: "#121212", logo: "assets/logos/Golden Phoenix.png",
+    players: ["Amjad Alzedan","Aimal Nikamal","Baraa Ahmed","Fadi Kayali","Kader Kimouche","Majed Barazenji","Youssef Abdelhai","Rafan Syed","Yoosuf Chaudhary","Mahdi Tlemcani","Bashar Diab","Makhdi Dadayev","Ibrahim Mohammed","Moho Shahin","Soufiane Rahmouni"]
   },
   {
     name: "Al-Ittihad", captain: "Shaker Saleh", initials: "AI", color: "#E0C64C", text: "#121212", logo: "assets/logos/Al-Ittihad.png",
@@ -477,6 +477,7 @@ function showTab(tab){
    type: "Trade" | "Signing" | "Drop"
    ========================================================= */
 const ROSTER_EVENTS = [
+  {date:"2026-10-03", type:"Signing", desc:"Golden Phoenix sign Mahdi Tlemcani, Bashar Diab, Makhdi Dadayev, Ibrahim Mohammed, Moho Shahin and Soufiane Rahmouni, replacing Haitham Salim, Mohammed Aljumai, Abdulkudus Farah, Yahya Kadur, Mazen Khaled and Tamim Zahir. Amjad Alzedan named team captain."},
   {date:"2026-09-29", type:"Signing", desc:"Blue Lock FC sign Mo Sallam, replacing Razen Alhebshi."},
   {date:"2026-09-29", type:"Signing", desc:"Blue Lock FC sign Adham Hmeid, replacing Ahmad Read Sapper Zaid."},
   {date:"2026-09-22", type:"Trade", desc:"Osoud Kanaan trade Sarim Khan to Shabab FC for Imran Rahman."},
@@ -484,7 +485,7 @@ const ROSTER_EVENTS = [
   {date:"2026-09-22", type:"Trade", desc:"Al-Ittihad trade Evren Cekin to Shabab FC for Mahmoud Jniat."},
   {date:"2026-09-21", type:"Trade", desc:"Hilal Al-Quds trade Badr Eddine Kimakh to Shabab FC for Amjad Saad."},
   {date:"2026-09-21", type:"Signing", desc:"Golden Phoenix sign Abdulkudus Farah, replacing Shiar Mohammad."},
-  {date:"2026-09-19", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader."},
+  {date:"2026-09-19", type:"Signing", desc:"Fursan FC sign Zakaria Abdelqader, replacing Yusef Alazhari."},
   {date:"2026-09-19", type:"Signing", desc:"Al Muluk FC sign Yousef Khader, replacing Ihab Taha."},
   {date:"2026-09-18", type:"Trade", desc:"Golden Phoenix trade Mohammed EL Jeffal to Hidden Olive FC for Youssef Abdelhai."},
   {date:"2026-09-15", type:"Signing", desc:"Al-Ittihad sign Khalid Sakr, replacing Basim Ismail (dropped due to injury)."},
