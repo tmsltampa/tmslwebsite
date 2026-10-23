@@ -339,6 +339,28 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 .standings-legend{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
 .standings-legend span{font-size:12px;color:var(--slate);display:flex;align-items:center;gap:8px;}
 .legend-dot{width:10px;height:10px;border-radius:2px;display:inline-block;}
+/* PLAYOFF BRACKET */
+.bracket-wrap{margin-bottom:64px;}
+.bracket-note{color:var(--slate);font-size:14px;line-height:1.7;max-width:720px;margin:-28px 0 28px;}
+.bracket{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
+.bracket-round{display:flex;flex-direction:column;}
+.bracket-round-head{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;}
+.bracket-round-head h3{font-size:15px;font-weight:600;}
+.bracket-round-head span{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);}
+.bracket-matches{display:flex;flex-direction:column;justify-content:space-around;gap:14px;flex:1;}
+.bracket-match{background:var(--night-2);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+.bracket-match-label{font-family:'Oswald';font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);padding:6px 12px;border-bottom:1px solid var(--line);}
+.bracket-team{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:13px;font-weight:600;}
+.bracket-team + .bracket-team{border-top:1px solid var(--line);}
+.bracket-team .seed{font-family:'Oswald';font-size:12px;color:var(--gold-light);width:16px;flex-shrink:0;}
+.bracket-team .name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bracket-team .score{font-family:'Oswald';font-weight:700;}
+.bracket-team.tbd .name{color:var(--slate);font-weight:500;font-style:italic;}
+.bracket-team.won{border-left:3px solid var(--gold);padding-left:9px;}
+.bracket-team.lost{opacity:0.45;}
+.bracket-final .bracket-match{border-color:var(--gold);}
+@media(max-width:900px){.bracket{grid-template-columns:1fr 1fr;row-gap:36px;}}
+@media(max-width:560px){.bracket{grid-template-columns:1fr;}}
 /* TEAMS GRID */
 .teams-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
 .team-card{background:var(--night-2);padding:32px;}
@@ -541,6 +563,15 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
 </section>
 <section class="sec">
   <div class="container">
+    <div class="bracket-wrap">
+      <div class="sec-head">
+        <div><span class="sec-eyebrow" id="bracketEyebrow">Postseason</span><h2>Playoff Bracket</h2></div>
+      </div>
+      <p class="bracket-note">
+        All 11 teams make the playoffs. Seeds 6&ndash;11 open with three play-in matches. The top seed then faces the lowest remaining seed, 2 faces the second-lowest, 3 the third-lowest, and 4 plays 5. The bracket is fixed after that, with no reseeding.
+      </p>
+      <div class="bracket" id="bracket"></div>
+    </div>
     <div class="filter-bar" style="margin-bottom:36px;">
       <button class="gfilter active" id="tabStandingsBtn" onclick="showTab('standings')">League Table</button>
       <button class="gfilter" id="tabStatsBtn" onclick="showTab('stats')">Golden Boot</button>
@@ -568,24 +599,6 @@ footer{background:var(--night-2);border-top:1px solid var(--line);padding:64px 0
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
-</section>
-<section class="sec" style="background:var(--night-2);">
-  <div class="container">
-    <div class="sec-head">
-      <div><span class="sec-eyebrow">Postseason</span><h2>Playoff format</h2></div>
-    </div>
-    <p style="color:var(--slate);font-size:15px;line-height:1.8;max-width:680px;margin-bottom:32px;">
-      All 11 teams make the playoffs. The bottom six seeds open with three play-in matches to determine who advances. Winners then slot into the quarterfinal bracket, which is fixed — no reseeding between rounds.
-    </p>
-    <div class="tbl-scroll">
-      <table class="standings-table" id="bracketTable">
-        <thead><tr><th>Round</th><th>Matchup</th></tr></thead>
-        <tbody id="bracketBody">
-          <tr><td colspan="2" style="text-align:center;color:var(--slate);padding:40px;">Loading&hellip;</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
@@ -754,25 +767,73 @@ function showTab(tab){
     });
     renderBracket(rows);
   }
+  /* =========================================================
+     PLAYOFFS
+     -----------------------------------------------------------
+     Set SEEDS_FINAL to true once the regular season ends so the
+     bracket stops saying "Projected".
+     Enter each result as [first team's goals, second team's goals],
+     in the order the teams appear on the bracket. For a match
+     decided on penalties, add pens: e.g. PI1: [1,1], PI1_pens: [4,3].
+     Leave a match out until it has been played.
+     ========================================================= */
+  const SEEDS_FINAL = false;
+  const PLAYOFF_RESULTS = {
+    // PI1: [2,1],
+  };
+  const PLAYOFF_DATES = {pi:"Mon, Nov 2", qf:"Thu, Nov 5", sf:"TBD", f:"TBD"};
   function renderBracket(rows){
-    const tbody = document.getElementById('bracketBody');
+    const el = document.getElementById('bracket');
     if(rows.length < 11){
-      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:var(--slate);padding:40px;">Bracket available once all 11 teams have standings data.</td></tr>';
+      el.innerHTML = '<p style="color:var(--slate);">Bracket available once all 11 teams have standings data.</p>';
       return;
     }
-    const seed = (n) => rows[n-1].team;
-    tbody.innerHTML = `
-      <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(6) ${seed(6)} vs (11) ${seed(11)}</td></tr>
-      <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(7) ${seed(7)} vs (10) ${seed(10)}</td></tr>
-      <tr><td><span class="tag tag-upcoming">Play-In</span></td><td>(8) ${seed(8)} vs (9) ${seed(9)}</td></tr>
-      <tr><td>Quarterfinal 1</td><td>(1) ${seed(1)} vs Lowest Remaining Seed</td></tr>
-      <tr><td>Quarterfinal 2</td><td>(2) ${seed(2)} vs 2nd Lowest Remaining Seed</td></tr>
-      <tr><td>Quarterfinal 3</td><td>(3) ${seed(3)} vs 3rd Lowest Remaining Seed</td></tr>
-      <tr><td>Quarterfinal 4</td><td>(4) ${seed(4)} vs (5) ${seed(5)}</td></tr>
-      <tr><td>Semifinal 1</td><td>Winner of QF1 vs Winner of QF4</td></tr>
-      <tr><td>Semifinal 2</td><td>Winner of QF2 vs Winner of QF3</td></tr>
-      <tr><td>Final</td><td>SF1 Winner vs SF2 Winner</td></tr>
-    `;
+    document.getElementById('bracketEyebrow').textContent = SEEDS_FINAL ? 'Postseason' : 'Postseason · Projected seeding';
+    const S = (n) => ({seed:n, team:rows[n-1].team});
+    const TBD = (label) => ({tbd:label});
+    // Returns the winning side of a match, or null if not yet played
+    function play(id, a, b){
+      const r = PLAYOFF_RESULTS[id], p = PLAYOFF_RESULTS[id+'_pens'];
+      let winner = null;
+      if(r && !a.tbd && !b.tbd){
+        const [x,y] = (r[0]===r[1] && p) ? p : r;
+        if(x !== y) winner = x > y ? a : b;
+      }
+      return {id, a, b, r, p, winner};
+    }
+    const pi = [play('PI1', S(6), S(11)), play('PI2', S(7), S(10)), play('PI3', S(8), S(9))];
+    // Play-in winners, lowest seed first, fill QF1-QF3
+    const piDone = pi.every(m => m.winner);
+    const piWinners = piDone ? pi.map(m => m.winner).sort((x,y) => y.seed - x.seed) : [];
+    const opp = (i, label) => piDone ? piWinners[i] : TBD(label);
+    const qf1 = play('QF1', S(1), opp(0, 'Lowest play-in winner'));
+    const qf2 = play('QF2', S(2), opp(1, '2nd-lowest play-in winner'));
+    const qf3 = play('QF3', S(3), opp(2, 'Highest play-in winner'));
+    const qf4 = play('QF4', S(4), S(5));
+    const w = (m) => m.winner || TBD('Winner ' + m.id);
+    const sf1 = play('SF1', w(qf1), w(qf4));
+    const sf2 = play('SF2', w(qf2), w(qf3));
+    const fin = play('F', w(sf1), w(sf2));
+
+    function side(t, goals, pens, m){
+      if(t.tbd) return `<div class="bracket-team tbd"><span class="seed"></span><span class="name">${t.tbd}</span></div>`;
+      const cls = m.winner ? (m.winner === t ? ' won' : ' lost') : '';
+      const color = TEAM_COLORS[t.team] || '#8B9299';
+      const score = goals === undefined ? '' : goals + (pens === undefined ? '' : ` <small>(${pens})</small>`);
+      return `<div class="bracket-team${cls}"><span class="seed">${t.seed}</span><span class="team-dot" style="background:${color}"></span><span class="name">${t.team}</span><span class="score">${score}</span></div>`;
+    }
+    function match(m, label){
+      const r = m.r || [], p = m.p || [];
+      return `<div class="bracket-match"><div class="bracket-match-label">${label}</div>${side(m.a, r[0], p[0], m)}${side(m.b, r[1], p[1], m)}</div>`;
+    }
+    function round(title, date, matches, extra){
+      return `<div class="bracket-round${extra||''}"><div class="bracket-round-head"><h3>${title}</h3><span>${date}</span></div><div class="bracket-matches">${matches.join('')}</div></div>`;
+    }
+    el.innerHTML =
+      round('Play-In', PLAYOFF_DATES.pi, pi.map((m,i) => match(m, 'Play-In ' + (i+1)))) +
+      round('Quarterfinals', PLAYOFF_DATES.qf, [match(qf1,'QF1'), match(qf4,'QF4'), match(qf2,'QF2'), match(qf3,'QF3')]) +
+      round('Semifinals', PLAYOFF_DATES.sf, [match(sf1,'SF1'), match(sf2,'SF2')]) +
+      round('Final', PLAYOFF_DATES.f, [match(fin,'Championship')], ' bracket-final');
   }
   function loadStandings(){
     if(!STANDINGS_CSV_URL){
