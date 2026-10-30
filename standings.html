@@ -721,12 +721,12 @@ function showTab(tab){
   }
   const FALLBACK_STANDINGS = [
     {team:"Al Muluk FC", gp:9, w:7, d:1, l:1, gf:26, ga:11, pts:22},
-    {team:"Straw Hats FC", gp:9, w:7, d:0, l:2, gf:24, ga:11, pts:21},
+    {team:"Straw Hats FC", gp:10, w:7, d:1, l:2, gf:26, ga:13, pts:22},
     {team:"Hilal Al-Quds", gp:9, w:5, d:3, l:1, gf:22, ga:7, pts:18},
     {team:"Al-Ittihad", gp:9, w:5, d:1, l:3, gf:28, ga:12, pts:16},
     {team:"Shabab FC", gp:9, w:4, d:3, l:2, gf:20, ga:14, pts:15},
+    {team:"Fursan FC", gp:10, w:4, d:2, l:4, gf:23, ga:19, pts:14},
     {team:"Handala United", gp:9, w:4, d:2, l:3, gf:17, ga:14, pts:14},
-    {team:"Fursan FC", gp:9, w:4, d:1, l:4, gf:21, ga:17, pts:13},
     {team:"Osoud Kanaan", gp:9, w:4, d:0, l:5, gf:16, ga:31, pts:12},
     {team:"Hidden Olive FC", gp:10, w:2, d:1, l:7, gf:17, ga:26, pts:7},
     {team:"Golden Phoenix", gp:9, w:1, d:0, l:8, gf:6, ga:26, pts:3},
@@ -854,12 +854,12 @@ function showTab(tab){
       .catch(()=> renderStandings(FALLBACK_STANDINGS));
   }
   const FALLBACK_STATS = [
+    {category:"Scorer", name:"Ahmad Hijaz", team:"Fursan FC", value:"13"},
     {category:"Scorer", name:"Hareth Saleh", team:"Al Muluk FC", value:"12"},
     {category:"Scorer", name:"Badr Eddine Kimakh", team:"Shabab FC", value:"12"},
     {category:"Scorer", name:"Shaker Saleh", team:"Al-Ittihad", value:"11"},
-    {category:"Scorer", name:"Ahmad Hijaz", team:"Fursan FC", value:"11"},
     {category:"Scorer", name:"Ali Aboud", team:"Hilal Al-Quds", value:"9"},
-    {category:"Scorer", name:"Mohammed Hijaz", team:"Straw Hats FC", value:"8"},
+    {category:"Scorer", name:"Mohammed Hijaz", team:"Straw Hats FC", value:"9"},
     {category:"Scorer", name:"Gabriel Hodge", team:"Al Muluk FC", value:"6"},
     {category:"Scorer", name:"Rayane Ritouni", team:"Handala United", value:"6"},
     {category:"Scorer", name:"Heemo Rifaie", team:"Fursan FC", value:"5"},
@@ -898,6 +898,7 @@ function showTab(tab){
     {category:"Scorer", name:"Hamza Salim", team:"Shabab FC", value:"2"},
     {category:"Scorer", name:"Iyas Zaben", team:"Al-Ittihad", value:"2"},
     {category:"Scorer", name:"Mo Sallam", team:"Blue Lock FC", value:"2"},
+    {category:"Scorer", name:"Kenzi Touadi", team:"Straw Hats FC", value:"2"},
     {category:"Scorer", name:"Mazen AlAsmi", team:"Al Muluk FC", value:"1"},
     {category:"Scorer", name:"Yazid Ismail", team:"Fursan FC", value:"1"},
     {category:"Scorer", name:"Rashid Alqawasmi", team:"Fursan FC", value:"1"},
@@ -922,7 +923,6 @@ function showTab(tab){
     {category:"Scorer", name:"Osama Alzedan", team:"Handala United", value:"1"},
     {category:"Scorer", name:"Mohammed Rahami", team:"Straw Hats FC", value:"1"},
     {category:"Scorer", name:"Abdelilah Serroukh", team:"Hilal Al-Quds", value:"1"},
-    {category:"Scorer", name:"Kenzi Touadi", team:"Straw Hats FC", value:"1"},
     {category:"Scorer", name:"Adam Zendouzi", team:"Handala United", value:"1"},
     {category:"Scorer", name:"Adam Sheikha", team:"Osoud Kanaan", value:"1"},
   ];
