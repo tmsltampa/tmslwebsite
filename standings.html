@@ -788,6 +788,7 @@ function showTab(tab){
     QF4: [2,0],
     SF1: [5,2],
     SF2: [1,4],
+    F: [4,1],
   };
   const PLAYOFF_DATES = {pi:"Thu, Nov 5", qf:"Mon, Nov 9", sf:"Thu, Nov 12", f:"Fri, Nov 20"};
   function renderBracket(rows){
@@ -862,8 +863,8 @@ function showTab(tab){
       .catch(()=> renderStandings(FALLBACK_STANDINGS));
   }
   const FALLBACK_STATS = [
+    {category:"Scorer", name:"Hareth Saleh", team:"Al Muluk FC", value:"22"},
     {category:"Scorer", name:"Shaker Saleh", team:"Al-Ittihad", value:"20"},
-    {category:"Scorer", name:"Hareth Saleh", team:"Al Muluk FC", value:"19"},
     {category:"Scorer", name:"Badr Eddine Kimakh", team:"Shabab FC", value:"16"},
     {category:"Scorer", name:"Ahmad Hijaz", team:"Fursan FC", value:"15"},
     {category:"Scorer", name:"Ali Aboud", team:"Hilal Al-Quds", value:"12"},
@@ -909,6 +910,7 @@ function showTab(tab){
     {category:"Scorer", name:"Kenzi Touadi", team:"Straw Hats FC", value:"2"},
     {category:"Scorer", name:"Sameh Zaben", team:"Osoud Kanaan", value:"2"},
     {category:"Scorer", name:"Shihab al-deen Mustafa", team:"Hilal Al-Quds", value:"2"},
+    {category:"Scorer", name:"Baraa Elwan", team:"Al Muluk FC", value:"2"},
     {category:"Scorer", name:"Mazen AlAsmi", team:"Al Muluk FC", value:"1"},
     {category:"Scorer", name:"Yazid Ismail", team:"Fursan FC", value:"1"},
     {category:"Scorer", name:"Rashid Alqawasmi", team:"Fursan FC", value:"1"},
@@ -933,9 +935,9 @@ function showTab(tab){
     {category:"Scorer", name:"Abdelilah Serroukh", team:"Hilal Al-Quds", value:"1"},
     {category:"Scorer", name:"Adam Zendouzi", team:"Handala United", value:"1"},
     {category:"Scorer", name:"Adam Sheikha", team:"Osoud Kanaan", value:"1"},
-    {category:"Scorer", name:"Baraa Elwan", team:"Al Muluk FC", value:"1"},
     {category:"Scorer", name:"Mahmoud Beirekdar", team:"Osoud Kanaan", value:"1"},
     {category:"Scorer", name:"Khalid Sakr", team:"Al-Ittihad", value:"1"},
+    {category:"Scorer", name:"Mohammad Said", team:"Al-Ittihad", value:"1"},
   ];
   function renderStats(rows){
     const scorers = rows.filter(r => (r.category||'').toLowerCase() === 'scorer');
